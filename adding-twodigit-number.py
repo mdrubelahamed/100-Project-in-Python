@@ -11,6 +11,7 @@
 
 
 
+
 # #adding all digits together //input:123 output:6
 # numbers = input("enter numbers: ")
 
