@@ -19,5 +19,3 @@ while guess_num != random_num:
             print("Too High! Try again.")
         else: 
             print("Too low! Try Again")
-
-
