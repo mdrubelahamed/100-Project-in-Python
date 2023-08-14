@@ -63,5 +63,5 @@ AttributeError: partially initialized module 'random' has no attribute 'randint'
 https://app.codingrooms.com/management/courses/6387/classes/8480/assignments -- here what 6378 and 8480 mean
 
 ### Lists
-list.pop() -> removes the last item from the list
+list.pop() -> removes the last item from the list  
 list.pop(3) -> remove the index 3 item from the list (**Specify the remove item index**)
