@@ -2,6 +2,3 @@
 ### day5 notes
 
 ## For loop
-
-
-##### Installing Thonny Application
