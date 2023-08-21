@@ -20,10 +20,10 @@ while bidder_left:
     name = input("What is your name? ")
     bid_amount = int(input("What's your bid $"))
     dict1[name] = bid_amount
-    # because of the we want to clear the screen so no one can see others bid amount
-    os.system('cls')
     # ask is there any bidder left or not
     quit = input("Are there any other bidders? Type 'yes' or 'no'.\n")
+    # because of the we want to clear the screen so no one can see others bid amount
+    os.system('cls')
     if quit.lower() == "no":
         bidder_left = False
 
