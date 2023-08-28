@@ -1,21 +1,13 @@
-# import another_module
-# print(another_module.another_variable)
+from prettytable import PrettyTable
 
-from turtle import Turtle, Screen
+# create an object called 'table' from 'PrettyTable' class 
+table = PrettyTable()
 
-timmy = Turtle()
-print(timmy)
-timmy.color("green")
-timmy.shape("turtle")
-timmy.forward(100)
-timmy.right(angle=90)
-timmy.forward(100)
-timmy.right(angle=90)
-timmy.forward(100)
-timmy.right(angle=90)
-timmy.forward(100)
-# timmy.right(angle=90)
+table.add_column("Pokemon Name",["Pikachu", "Squirtle", "Charmander"])
+table.add_column("Type",["Electric", "Water", "Fire"])
 
-my_screen = Screen()
-print(my_screen.canvheight)
-my_screen.exitonclick()
+# print(table.align)
+table.align = "l"
+
+
+print(table)
