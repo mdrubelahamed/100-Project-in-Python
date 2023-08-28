@@ -1,28 +1,19 @@
-#conditional Statements, Logical Operators, Code Blocks , Scope and many more
-# Treasure Island game
+# BUILD A BMI CALCULATOR
+print("Welcome to the BMI calculator!")
+height = float(input("enter your height in m: "))
+weight = float(input("enter your weight in kg: "))
 
 
-# rollercoaster ride
-print("Welcome to the roller coaster!")
-height = int(input("What is your height in cm? "))
+bmi = round(weight / (height**2))
 
-if height >= 120 :
-    print("You can ride the roller coaster!")
-    age = int(input("what is your age? "))
-    if age < 12:
-        print("Your Ticket Price is $5")
-    elif 12 <= age <= 18:
-        print("Your Ticket Price is $7")
-    else:
-        print("Your Ticket Price is $12")
+# print(round(bmi))
+if bmi < 18.5 :
+    print(f"Your BMI is {bmi:.1f}, you are underweight.")
+elif bmi < 25 :
+    print(f"Your BMI is {bmi:.1f}, you have a normal weihgt")
+elif bmi < 30 :
+    print(f"Your BMI is {bmi:.1f}, you are slightly overweihgt")
+elif bmi < 34.9 :
+    print(f"Your BMI is {bmi:.1f}, you are obese")
 else:
-    print("Sorry, you have to grow taller before you can ride.")
-
-
-
-# #checking odd even number
-# number = int(input("Which number do you want to check? "))
-# if number%2 == 0:
-#     print(f"{number} is an even number.")
-# else:
-#     print(f"{number} is an odd number.")
+    print(f"Your BMI is {bmi:.1f}, you are  clinically obese")
