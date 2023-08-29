@@ -39,8 +39,28 @@ x.add_column("Annual Rainfall",[600.5, 1146.4, 1714.7, 619.5, 1214.8, 646.9, 869
 print(x)
 ```
 
+```
+# CREATE A TABLE ON YOUR OWN
+from prettytable import PrettyTable
+
+# create an object called 'table' from 'PrettyTable' class 
+table = PrettyTable()
+
+table.add_column("Pokemon Name",["Pikachu", "Squirtle", "Charmander"])
+table.add_column("Type",["Electric", "Water", "Fire"])
+
+# print(table.align)
+table.align = "r"
 
 
+print(table)
+
+```
+
+
+
+Q. BUILD A REAL LIFE TABLE FROM THE INTERNET?   
+--> 
 
 
 
