@@ -4,6 +4,5 @@ class Question:
         self.answer = q_answer
 
 
-
 # new_q = Question("hello", "answer")
 # print(new_q.text)
