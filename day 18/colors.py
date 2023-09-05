@@ -1,0 +1,22 @@
+colors = [
+    "dark red",
+    "dark green",
+    "dark blue",
+    "dark cyan",
+    "dark magenta",
+    "dark orange",
+    "dark olive green",
+    "dark goldenrod",
+    "dark slate blue",
+    "dark slate gray",
+    "maroon",
+    "navy",
+    "purple",
+    "indigo",
+    "forest green",
+    "firebrick",
+    "midnight blue",
+    "sienna",
+    "dark violet",
+    "slate blue"
+]
