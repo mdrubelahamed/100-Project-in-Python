@@ -6,7 +6,7 @@
 #     value = 100.00
 #     def description(self):
 #         desc_str = f"{self.name} is a {self.color} {self.kind} worth ${self.value}."
-#         return desc_str
+#         retimmyn desc_str
 # # your code goes here
 # car1 = Vehicle()
 # car2 = Vehicle()
@@ -35,5 +35,31 @@
 # print(c.upper())
 # print(len(d))
 
-x = "Maulana Abul Kalam Azad University of Technology"
-print(x.upper())
+# x = "Maulana Abul Kalam Azad University of Technology"
+# print(x.upper())
+
+from turtle import *
+import turtle
+
+timmy = Turtle()
+timmy.fillcolor("yellow")
+timmy.begin_fill()
+for _ in range(6):
+  timmy.forward(150)
+  timmy.right(-60)
+timmy.end_fill()
+
+
+
+
+
+
+
+
+
+
+
+
+
+screen = Screen()
+screen.exitonclick()
