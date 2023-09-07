@@ -61,10 +61,10 @@ turtle.colormode(255)
 x = -200
 y = -250
 for i in range(1, 101):
+    tim.hideturtle()
     
     random_color = random.choice(color_list)
     tim.penup()
-    tim.hideturtle()
     tim.setposition(x,y)
     tim.pendown()
     tim.dot(20,random_color)
