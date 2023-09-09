@@ -4,7 +4,7 @@ import random
 
 screen = Screen()
 screen.setup(width=600,height=400)
-user_bet = screen.textinput(title="Make your bet", prompt="Which turtle win the race, Enter a color: ")
+user_bet = screen.textinput(title="Make your bet", prompt="Which turtle will win the race? \n(red, orange, yellow, green, blue, purple) \nEnter a color: ")
 print(user_bet)
 
 colors = ["red", "orange", "yellow", "green", "blue", "purple"]
