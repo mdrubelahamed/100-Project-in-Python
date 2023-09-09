@@ -1,5 +1,5 @@
-- listen() function in turtle graphics  
-- onkey(key=listiningkey, fun=function()) function in turtle graphics  
+## listen() method in turtle graphics  
+### onkey(key=listiningkey, fun=function()) method in turtle graphics  
 
 ```
 from turtle import Turtle,Screen
@@ -85,6 +85,129 @@ def draw_shape(set_color):
 
 
 draw_shape(set_color=random_color)
+
+screen.exitonclick()
+```
+
+
+## Higher Order Function
+- when a function use another function as a parameter then it's called higher order function
+```
+def add(n1,n2):
+    return n1 + n2
+
+def subtract(n1,n2):
+    return n1 - n2
+
+def multiply(n1,n2):
+    return n1 * n2
+
+def divide(n1,n2):
+    return n1 / n2
+
+def calculator(n1,n2,func): # Here calculator is a higher order function, 'cause it's using another function as parameter
+    return func(n1,n2)
+
+print(calculator(5,2,divide))
+```
+
+
+### Make a turle which can go forward, backward, clockwise and anti-clockwise
+```
+from turtle import Turtle,Screen
+import turtle
+import random
+
+
+tim = Turtle()
+screen = Screen()
+
+# tim.speed("fast")
+
+def move_forward():
+    tim.forward(10)
+
+def move_backward():
+    tim.backward(10)
+
+def move_counter_clockwise():
+    new_heading = tim.heading() + 10
+    tim.setheading(new_heading)
+    # tim.left(10) ## or
+
+def move_clockwise():
+    new_heading = tim.heading() - 10
+    tim.setheading(new_heading)
+    # tim.right(10) ##or
+
+def clear_drawing():
+    tim.clear()
+    tim.penup()
+    tim.home()
+    tim.pendown()
+
+
+screen.listen()
+screen.onkey(fun=move_forward, key="w")
+screen.onkey(fun=move_backward, key="s")
+screen.onkey(fun=move_counter_clockwise, key="a")
+screen.onkey(fun=move_clockwise, key="d")
+screen.onkey(fun=clear_drawing, key="c")
+
+screen.exitonclick()
+
+```
+
+
+# 2 turtle race program
+```
+from turtle import Turtle,Screen
+import random
+
+screen = Screen()
+screen.setup(width=600,height=400)
+user_bet = screen.textinput(title="Make your bet", prompt="Which turtle win the race, Enter a color: ")
+print(user_bet)
+
+a = Turtle()
+b = Turtle()
+c = Turtle()
+d = Turtle()
+e = Turtle()
+
+a.color("red")
+b.color("green")
+c.color("blue")
+d.color("purple")
+e.color("yellow")
+
+turtle_list = [a,b,c,d,e]
+x = -280
+y = 200
+
+
+for turtle in turtle_list:
+    y -= 40
+    turtle.shape("turtle")
+    turtle.penup()
+    turtle.goto(x, y)
+    # turtle.pendown()
+
+should_move = True
+while should_move:
+    for turtle in turtle_list:
+        turtle.penup()
+        turtle.forward(random.randint(0,10))
+        if turtle.xcor() > 260:  # Check if the turtle's x-coordinate is <= -300
+            should_move = False
+            winning_color = turtle.pencolor()
+            if winning_color == user_bet:
+                print(f"you won, The {winning_color} turtle is the winning turtle")
+            else:
+                print(f"you lost, The {winning_color} turtle is the winning turtle")
+
+
+
 
 screen.exitonclick()
 ```
