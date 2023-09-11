@@ -24,7 +24,6 @@ for t_index in range(0,6):
 if user_bet:
     is_race_on = True
 
-
 while is_race_on:
     for turtle in all_turtles:
         if turtle.xcor() > 260:
