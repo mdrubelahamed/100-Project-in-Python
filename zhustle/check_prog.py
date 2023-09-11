@@ -50,48 +50,79 @@
 # timmy.end_fill()
 
 
-# importing package
+# # importing package
+# import turtle
+# from turtle import Screen
+# # loop for motion with
+# # default tracer as 1
+# for i in range(20):
+# 	turtle.forward(1+1*i)
+# 	turtle.right(45)
+
+# # set tracer values as (2,0)
+# # 2 -> for screen update
+# # 0 -> delay
+# turtle.tracer(n=2, delay=0)
+
+# # loop for motion with
+# # above tracer values
+# for i in range(20, 40):
+# 	turtle.forward(1+1*i)
+# 	turtle.right(45)
+
+# # set tracer values as (1,50)
+# # 1 -> for screen update
+# # 50 -> delay
+# turtle.tracer(n=1, delay=50)
+
+# # loop for motion with
+# # above tracer values
+# for i in range(40, 60):
+# 	turtle.forward(1+1*i)
+# 	turtle.right(45)
+
+
+# from turtle import *
+# import turtle as tur
+# speed("slowest")
+# tur.width(5)
+# yd=xd=-64
+# tur.tracer(delay=0) 
+# for i in range(2):
+#     tur.up()
+#     tur.goto(-197.5,yd)
+#     tur.down()
+#     tur.seth(0)
+#     tur.fd(394)
+#     yd+=128
+#     tur.up()
+#     tur.goto(xd,197.5)
+#     tur.down()
+#     tur.seth(270)
+#     tur.fd(394)
+#     xd+=128
+# # tur.mainloop()
+
+# import turtle
+  
+
+
+# print(turtle.tracer())
+# # turtle.done()
+
+
+# screen = turtle.Screen()
+# screen.exitonclick()
+
 import turtle
-from turtle import Screen
-# loop for motion with
-# default tracer as 1
-for i in range(20):
-	turtle.forward(1+1*i)
-	turtle.right(45)
 
-# set tracer values as (2,0)
-# 2 -> for screen update
-# 0 -> delay
-turtle.tracer(n=2, delay=0)
+screen = turtle.Screen()
+t = turtle.Turtle()
 
-# loop for motion with
-# above tracer values
-for i in range(20, 40):
-	turtle.forward(1+1*i)
-	turtle.right(45)
+screen.tracer(1,500)  # Updates the screen after every action, with a 100ms delay
 
-# set tracer values as (1,50)
-# 1 -> for screen update
-# 50 -> delay
-turtle.tracer(n=1, delay=50)
+for _ in range(4):
+    t.forward(100)
+    t.left(90)
 
-# loop for motion with
-# above tracer values
-for i in range(40, 60):
-	turtle.forward(1+1*i)
-	turtle.right(45)
-
-
-
-
-
-
-
-
-
-
-
-
-
-screen = Screen()
 screen.exitonclick()
