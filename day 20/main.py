@@ -2,6 +2,7 @@ from turtle import Screen  # Turtle,
 from snake import Snake
 from food import Food
 from scoreboard import Scoreboard
+from difficulty import Difficulty
 import time
 
 
@@ -11,6 +12,10 @@ screen.bgcolor("black")
 screen.title("Welcome to The Snake Game!")
 screen.tracer(0)
 
+
+
+difficulty_choice = screen.textinput(title="CHOOSE LEVEL", prompt="Choose difficulty \n(easy, medium, hard)").lower()
+game_level = Difficulty(difficulty_choice)
 
 snake = Snake()
 food = Food()
@@ -27,7 +32,8 @@ screen.onkey(fun=snake.right, key="Right")
 game_is_on = True
 while game_is_on:
     screen.update()
-    time.sleep(0.2)
+    # time.sleep(0.2)
+    time.sleep(game_level.get_sleep_time())
     snake.move()
 
     # Detect collision with food, increase the score
@@ -37,15 +43,13 @@ while game_is_on:
         scoreboard.increase_score()
 
     # Detect collision with wall
-    if snake.head.xcor() > 285 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
+    if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
         game_is_on = False
         scoreboard.game_over()
     
     # Detect collision with tail
-    for segment in snake.segments:
-        if segment == snake.head:
-            pass
-        elif snake.head.distance(segment) < 10 :
+    for segment in snake.segments[1:]:
+        if snake.head.distance(segment) < 10 :
             game_is_on = False
             scoreboard.game_over()
 

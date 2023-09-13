@@ -129,29 +129,33 @@
 
 
 
-#####################################
-# Inheritance
-class Animal:
-    def __init__(self):
-        self.num_eyes = 2
+# #####################################
+# # Inheritance
+# class Animal:
+#     def __init__(self):
+#         self.num_eyes = 2
     
-    def breathe(self):
-        print("Inhale, Exahle.")
+#     def breathe(self):
+#         print("Inhale, Exahle.")
 
 
-class Fish(Animal):
-    def __init__(self):
-        super().__init__()
+# class Fish(Animal):
+#     def __init__(self):
+#         super().__init__()
 
-    def breathe(self):
-        super().breathe()
-        print("doint it underwater")
+#     def breathe(self):
+#         super().breathe()
+#         print("doint it underwater")
 
-    def swim(self):
-        print("moving in water")
+#     def swim(self):
+#         print("moving in water")
 
-rui = Fish()
+# rui = Fish()
 
-rui.swim()
-rui.breathe()
-print(rui.num_eyes)
+# rui.swim()
+# rui.breathe()
+# print(rui.num_eyes)
+
+
+piano_keys = ["a", "b", "c", "d", "e", "f", "g"]
+print(piano_keys[2:5])

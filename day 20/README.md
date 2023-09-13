@@ -1,97 +1,112 @@
-# Python Snake Game
-- Before OOP snake code snippet'
+
+
+## Inheritance
 ```
-from turtle import Turtle, Screen 
+#####################################
+# Inheritance
+class Animal:
+    def __init__(self):
+        self.num_eyes = 2
+    
+    def breathe(self):
+        print("Inhale, Exahle.")
+
+
+class Fish(Animal):
+    def __init__(self):
+        super().__init__()
+
+    def breathe(self):
+        super().breathe()
+        print("doint it underwater")
+
+    def swim(self):
+        print("moving in water")
+
+rui = Fish()
+
+rui.swim()
+rui.breathe()
+print(rui.num_eyes)
+```
+
+
+## Control the Snake
+
+
+## COMPELET GAME 
+```
+from turtle import Screen  # Turtle,
+from snake import Snake
+from food import Food
+from scoreboard import Scoreboard
 import time
 
 
 screen = Screen()
 screen.setup(width=600, height=600)
 screen.bgcolor("black")
-screen.title("Welcome to Snake Game!")
+screen.title("Welcome to The Snake Game!")
 screen.tracer(0)
 
-#Create a snake body
-segments = []
-# starting_postion = [(0,0), (-20,0), (-40,0)]
-x_pos = 0
-y_pos = 0
 
-for i in range(0,3):
-    shape = Turtle(shape="square")
-    shape.color("white")
-    shape.penup()
-    shape.goto(x=x_pos,y=y_pos)  # shape.goto(starting_postion[i])
-    segments.append(shape)
-    x_pos -= 20
+snake = Snake()
+food = Food()
+scoreboard = Scoreboard()
+
+
+screen.listen()
+screen.onkey(fun=snake.up, key="Up")
+screen.onkey(fun=snake.down, key="Down")
+screen.onkey(fun=snake.left, key="Left")
+screen.onkey(fun=snake.right, key="Right")
 
 
 game_is_on = True
 while game_is_on:
-    screen.update() 
-    for seg_num in range(len(segments)-1, 0, -1):
-        new_x = segments[seg_num -1].xcor()
-        new_y = segments[seg_num -1].ycor()
-        segments[seg_num].goto(new_x, new_y)
+    screen.update()
+    time.sleep(0.2)
+    snake.move()
 
-    segments[0].forward(20)
-    time.sleep(0.3)
+    # Detect collision with food, increase the score
+    if snake.head.distance(food) < 15:
+        food.refresh()
+        snake.extend_segment()
+        scoreboard.increase_score()
 
-
-    # screen.listen()
-    # def turn_up():
-    #     if segments[0].xcor() > 0:
-    #         segments[0].left(90)
-    #     else:
-    #         segments[0].right(90)
-    # screen.onkey(fun=turn_up, key="Up")
-
-
-
-
+    # Detect collision with wall
+    if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
+        game_is_on = False
+        scoreboard.game_over()
+    
+    # Detect collision with tail
+    for segment in snake.segments:
+        if segment == snake.head:
+            pass
+        elif snake.head.distance(segment) < 10 :
+            game_is_on = False
+            scoreboard.game_over()
 
 
 screen.exitonclick()
 ```
 
+## Slicing
+- Example
 
-## Changing turtle head only
-```from turtle import Turtle
-
-STARTING_POSITIONS = [(-20,0), (-40,0)]
-MOVE_DISTANCE = 20
-UP = 90
-DOWN = 270
-LEFT = 180
-RIGHT = 0
-
-class Snake:
-    def __init__(self):
-        self.segments = []
-        self.create_head()
-        self.create_snake()
-        self.head = self.segments[0]
-
-
-    def create_head(self):
-        new_head = Turtle(shape="turtle")
-        new_head.color("red")
-        new_head.penup()
-        new_head.goto(x=0,y=0)
-        self.segments.append(new_head)
-
-    def create_snake(self):
-        for position in STARTING_POSITIONS:
-            new_segment = Turtle(shape="circle")
-            new_segment.color("red")
-            new_segment.penup()
-            new_segment.goto(position)
-            self.segments.append(new_segment)
-
-....
-....
-....
+```
+piano_keys = ["a", "b", "c", "d", "e", "f", "g"] 
+print(piano_keys[2:5])       # Output: ['c', 'd', 'e']
 ```
 
+```
+...
+complete code before tail
+....
 
-## Control the Snake
+    # Detect collision with tail
+    for segment in snake.segments[1:]:
+        if snake.head.distance(segment) < 10 :
+            game_is_on = False
+            scoreboard.game_over()
+```
