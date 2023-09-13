@@ -114,15 +114,44 @@
 # screen = turtle.Screen()
 # screen.exitonclick()
 
-import turtle
+# import turtle
 
-screen = turtle.Screen()
-t = turtle.Turtle()
+# screen = turtle.Screen()
+# t = turtle.Turtle()
 
-screen.tracer(1,500)  # Updates the screen after every action, with a 100ms delay
+# screen.tracer(1,500)  # Updates the screen after every action, with a 100ms delay
 
-for _ in range(4):
-    t.forward(100)
-    t.left(90)
+# for _ in range(4):
+#     t.forward(100)
+#     t.left(90)
 
-screen.exitonclick()
+# screen.exitonclick()
+
+
+
+#####################################
+# Inheritance
+class Animal:
+    def __init__(self):
+        self.num_eyes = 2
+    
+    def breathe(self):
+        print("Inhale, Exahle.")
+
+
+class Fish(Animal):
+    def __init__(self):
+        super().__init__()
+
+    def breathe(self):
+        super().breathe()
+        print("doint it underwater")
+
+    def swim(self):
+        print("moving in water")
+
+rui = Fish()
+
+rui.swim()
+rui.breathe()
+print(rui.num_eyes)
