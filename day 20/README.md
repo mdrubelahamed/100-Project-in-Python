@@ -1,5 +1,3 @@
-
-
 ## Inheritance
 ```
 #####################################
@@ -110,3 +108,5 @@ complete code before tail
             game_is_on = False
             scoreboard.game_over()
 ```
+
+- Note That day 20 has also include day21

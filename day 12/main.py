@@ -26,7 +26,7 @@ def choose_difficulty():
 
 def play_game():
     """User will guess until he either guess the correct answer or he is out of guesses"""
-    print(logo)
+    # print(logo)
     print("welcome to number guessing game.")
     print("I am thinking a number between 1 to 100. can you guees the number? ")
     computer_choice = randint(1,100)
@@ -43,7 +43,7 @@ def play_game():
         if attempts == 0:
             print("You've run out of guesses, you lose.")
             print(f"Guessing number is {computer_choice}")
-            return
+            return guess == computer_choice
         elif guess != computer_choice:
             print("Guess again.")
 play_game()

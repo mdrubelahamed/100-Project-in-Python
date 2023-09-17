@@ -1,4 +1,13 @@
-my number guessing game
+- WHAT?  
+- It's a number guessing game 
+- you can choose two level(easy or hard)   
+-  the number is between 1 - 100
+- If you choose lower that guess - Too low
+- If you choose higher that guess - Too high
+- if you choose correct answer the it's will say this is correct
+
+
+
 ```
 import random
 def guess_number():

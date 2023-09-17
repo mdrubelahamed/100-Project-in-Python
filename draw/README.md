@@ -1,4 +1,78 @@
 ```
+import random
+EASY_LEVEL_ATTEMPTS = 10
+HARD_LEVEL_ATTEMPTS = 5
+
+class Level:
+
+    def chance(self,user_input):
+        if user_input == "easy":
+            return EASY_LEVEL_ATTEMPTS
+        elif user_input == "hard":
+            return HARD_LEVEL_ATTEMPTS
+        else:
+            return EASY_LEVEL_ATTEMPTS
+        
+
+    def level_choice(self):
+        user_level = input("Choose your playing level? 'easy' or 'hard'-")
+        self.chance(user_input=user_level)
+    
+
+
+
+
+class Guess(Level):
+
+    def __init__(self):
+        super().__init__()
+        self.computer_number = random.randint(1,100)
+
+    def user_guess(self):
+        self.guess_process(self.computer_number)
+
+
+    
+
+    def check_number(self,user_num,comp_num,attempts):
+        if user_num == comp_num:
+            game_on = False
+            print("you guessed correct!")
+            print(f"The Correct Nubmer is {comp_num}")
+        elif user_num > comp_num:
+            print("Too High")
+            return attempts  - 1
+        elif user_num < comp_num:
+            print("Too Low")
+            return attempts  - 1
+        
+       
+    def attempts_check(self,comp_num):
+        game_on = True
+        while user_number != comp_num :
+            print(f"You have {attempts} left")
+            user_number = int(input("Make a guess: ")) 
+            self.check_number(user_num=user_number,comp_num=self.computer_number,attempts=self.attempts)
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------
+```
 """
 You are building a weather application that needs to store temperature data for different cities. Create a dictionary where the keys are city names and the values are lists of temperature readings. Perform the following tasks:
 
