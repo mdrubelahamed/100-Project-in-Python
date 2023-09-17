@@ -1,79 +1,58 @@
-## Turtle Graphics, Tuples And Importing Modules
-
-- timmy the turtle
-```
-from turtle import Turtle,Screen
-
-timmy_the_turtle = Turtle()
-
-timmy_the_turtle.shape("turtle")    
-timmy_the_turtle.color("green")
-
-def forward_66():
-    timmy_the_turtle.forward(66)
-
-def left_60():
-    timmy_the_turtle.left( 60)
-
-
-
-# Hexagon
-timmy_the_turtle.right(90)
-for i in range(6):
-    forward_66()
-    left_60()
-
-
-# #################
-# # Hexagon
-# timmy_the_turtle.right(60)
-# for i in range(6):
-#     forward_66()
-#     left_60()
-```
-
+## What?
 - Draw a square, Dashed line, 
-- Draw a triangle, square, pentagon, hexagon, heptagon, octagon, nonagon and decagon shape
+- Draw a triangle, square, pentagon, hexagon, heptagon, octagon, nonagon and decagon shape from the same position
+- Draw a random walk
+- draw a spirograph where several different circle will be drawn and create big circle which looks cool with different colours
+
+---
+
+
 ```
 # Draw a square
 for i in range(4):
-    timmy_the_turtle.forward(100)
-    timmy_the_turtle.right(90)
+    timmy.forward(100)
+    timmy.right(90)
 
 
 # Draw a Dashed line
 for _ in range(10):
-    timmy_the_turtle.pendown()
-    timmy_the_turtle.forward(10)
-    timmy_the_turtle.penup()
-    timmy_the_turtle.forward(10)
+    timmy.pendown()
+    timmy.forward(10)
+    timmy.penup()
+    timmy.forward(10)
+```
 
 
-
+- Draw a triangle, square, pentagon, hexagon, heptagon, octagon, nonagon and decagon shape from the same position
+```
 # Draw a triangle, square, pentagon, hexagon, heptagon, octagon, nonagon and decagon shape
+from turtle import Turtle
+import random
 
+colors = ["red", "green", "blue", "yellow", "purple", "orange"]
 def forward():
-    timmy_the_turtle.forward(100)
+    timmy.forward(100)
 
 corner = 3
 def right():
-    timmy_the_turtle.right(360//corner)
+    timmy.right(360//corner)
 
 
 for j in range(3,11):
     mycolor = random.choice(colors)
-    timmy_the_turtle.color(mycolor)
+    timmy.color(mycolor)
     for i in range(corner):
         right()
         forward()
     corner += 1
 ```
 
-- DRAW A RANDOM WALK
+- Draw a random walk
+
 ```
 # Draw a random walk (Mathamatics)
-timmy_the_turtle.speed(10)
-timmy_the_turtle.width(10) #or #timmy_the_turtle.pensize(10)
+timmy.speed(10)
+timmy.width(10) #or #timmy.pensize(10)
 direction1 = [0,90,180,270]
 
 # Setting the colormode 
@@ -87,16 +66,17 @@ def change_color():
 
 for _ in range(200):
     random_dir = random.choice(direction1)
-    timmy_the_turtle.pencolor(change_color())
+    timmy.pencolor(change_color())
 
-    timmy_the_turtle.setheading(random_dir)  #or #timmy_the_turtle.right(random_dir)
-    timmy_the_turtle.forward(30)
+    timmy.setheading(random_dir)  #or #timmy.right(random_dir)
+    timmy.forward(30)
 
 ```
--
--
+
+
+- draw a spirograph
 ```
-import turtle
+# draw a spirograph where several different circle will be drawn and create big circle which looks cool with different colours
 from turtle import Turtle, Screen
 import random
 
@@ -105,48 +85,48 @@ timmy = Turtle()
 timmy.shape("classic")
 timmy.color("red")
 
-# # Draw spirograph
-# timmy.speed(70)
+timmy.speed(70)
 
-# turtle.colormode(255)
-# def random_color():
-#     r = random.randint(0,255)
-#     g = random.randint(0,255)
-#     b = random.randint(0,255)
-#     return (r,g,b)
+turtle.colormode(255)
+def random_color():
+    r = random.randint(0,255)
+    g = random.randint(0,255)
+    b = random.randint(0,255)
+    return (r,g,b)
 
-# def draw_shape(size_of_gap):
-#     for _ in range(int(360/size_of_gap)):
-#         timmy.color(random_color())
-#         timmy.circle(100)
-#         timmy.setheading(timmy.heading() + size_of_gap)
+def draw_shape(size_of_gap):
+    for _ in range(int(360/size_of_gap)):
+        timmy.color(random_color())
+        timmy.circle(100)
+        timmy.setheading(timmy.heading() + size_of_gap)
 
-# draw_shape(5)
-
-
-# colormode
-# x = turtle.colormode(255)
-# print(x)
-
-# import turtle
-# import random
-# turtle.colormode (255)
-# i = 0
-# while i < 20:
-#     i += 1
-#     R = random.randrange (255)
-#     G = random.randrange (255)
-#     B = random.randrange (255)
-#     turtle.bgcolor (R,G,B,)
-#     turtle.color (R,G,B,)
-#     ang = random.randrange (360)
-#     turtle.width (5)
-#     turtle.forward (50)
-#     turtle.setheading(ang)
-
+draw_shape(5)
 
 
 screen = Screen()
 screen.exitonclick()
 
+```
+
+
+- draw random walk with random **bg color**
+```
+import turtle
+import random
+turtle.colormode (255)
+i = 0
+while i < 20:
+    i += 1
+    R = random.randrange (255)
+    G = random.randrange (255)
+    B = random.randrange (255)
+    turtle.bgcolor (R,G,B,)
+    turtle.color (R,G,B,)
+    ang = random.randrange (360)
+    turtle.width (5)
+    turtle.forward (50)
+    turtle.setheading(ang)
+
+screen = turtle.Screen()
+screen.exitonclick()
 ```

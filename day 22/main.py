@@ -32,6 +32,10 @@ while game_is_on:
         ball.bounce()
 
 
+    # Detect collision with the right paddle 
+    if ball.distance(r_paddle) < 50 and ball.xcor() > 480:
+        pass
+
 
 
 
