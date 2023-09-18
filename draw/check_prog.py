@@ -25,18 +25,6 @@
 # print(car2.description())
 
 
-# a = "Panchla azeem moazzam high school"
-# b = "West Bengal Council of Higher Secondary Education"
-# c = "West Bengal Board of Secondary Education"
-# d = "VILL : TILGAON, P.O. : BAGHAN, P.S : KALIYAGANJ, DIST : UTTAR DINAJPUR, PIN : 733129"
-
-# print(a.upper())
-# print(b.upper())
-# print(c.upper())
-# print(len(d))
-
-# x = "Maulana Abul Kalam Azad University of Technology"
-# print(x.upper())
 
 # from turtle import *
 # import turtle
@@ -157,5 +145,8 @@
 # print(rui.num_eyes)
 
 
-piano_keys = ["a", "b", "c", "d", "e", "f", "g"]
-print(piano_keys[2:5])
+# piano_keys = ["a", "b", "c", "d", "e", "f", "g"]
+# print(piano_keys[2:5])
+
+a = "SIX DEFINITE STEPS IS WAY I ACHIEVE MY FINANCIAL GOAL"
+print(a.title())
