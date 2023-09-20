@@ -26,72 +26,6 @@
 
 
 
-# from turtle import *
-# import turtle
-
-# timmy = Turtle()
-# timmy.fillcolor("yellow")
-# timmy.begin_fill()
-# for _ in range(6):
-#   timmy.forward(150)
-#   timmy.right(-60)
-# timmy.end_fill()
-
-
-# # importing package
-# import turtle
-# from turtle import Screen
-# # loop for motion with
-# # default tracer as 1
-# for i in range(20):
-# 	turtle.forward(1+1*i)
-# 	turtle.right(45)
-
-# # set tracer values as (2,0)
-# # 2 -> for screen update
-# # 0 -> delay
-# turtle.tracer(n=2, delay=0)
-
-# # loop for motion with
-# # above tracer values
-# for i in range(20, 40):
-# 	turtle.forward(1+1*i)
-# 	turtle.right(45)
-
-# # set tracer values as (1,50)
-# # 1 -> for screen update
-# # 50 -> delay
-# turtle.tracer(n=1, delay=50)
-
-# # loop for motion with
-# # above tracer values
-# for i in range(40, 60):
-# 	turtle.forward(1+1*i)
-# 	turtle.right(45)
-
-
-# from turtle import *
-# import turtle as tur
-# speed("slowest")
-# tur.width(5)
-# yd=xd=-64
-# tur.tracer(delay=0) 
-# for i in range(2):
-#     tur.up()
-#     tur.goto(-197.5,yd)
-#     tur.down()
-#     tur.seth(0)
-#     tur.fd(394)
-#     yd+=128
-#     tur.up()
-#     tur.goto(xd,197.5)
-#     tur.down()
-#     tur.seth(270)
-#     tur.fd(394)
-#     xd+=128
-# # tur.mainloop()
-
-# import turtle
   
 
 
@@ -148,5 +82,8 @@
 # piano_keys = ["a", "b", "c", "d", "e", "f", "g"]
 # print(piano_keys[2:5])
 
-a = "SIX DEFINITE STEPS IS WAY I ACHIEVE MY FINANCIAL GOAL"
-print(a.title())
+
+
+slow = "Then I added a logic where if the ball hits the paddle's the ball change his direction in the opposite where i change x-axis direction, so the ball move to the opposite direction"
+
+print(slow.title())
