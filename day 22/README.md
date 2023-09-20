@@ -38,3 +38,4 @@ So It'S Looks That The Ball Is Moving
         self.home()
         self.x_move *= -1
 ```
+- Also I added two condition where if ball miss the right paddle the point will be goes to the left player and vice-versa

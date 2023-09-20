@@ -2,7 +2,6 @@ from turtle import Screen  # Turtle,
 from snake import Snake
 from food import Food
 from scoreboard import Scoreboard
-from difficulty import Difficulty
 import time
 
 
@@ -14,8 +13,6 @@ screen.tracer(0)
 
 
 
-difficulty_choice = screen.textinput(title="CHOOSE LEVEL", prompt="Choose difficulty \n(easy, medium, hard)").lower()
-game_level = Difficulty(difficulty_choice)
 
 snake = Snake()
 food = Food()
@@ -33,7 +30,7 @@ game_is_on = True
 while game_is_on:
     screen.update()
     # time.sleep(0.2)
-    time.sleep(game_level.get_sleep_time())
+    time.sleep(snake.move_speed)
     snake.move()
 
     # Detect collision with food, increase the score

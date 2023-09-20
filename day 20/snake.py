@@ -7,11 +7,13 @@ DOWN = 270
 LEFT = 180
 RIGHT = 0
 
-class Snake:
+class Snake(Turtle):
 
     def __init__(self):
+        super().__init__()
         self.segments = []
         self.create_snake()
+        self.move_speed = 0.2
         self.head = self.segments[0]
 
 
@@ -26,10 +28,13 @@ class Snake:
             new_segment.goto(position)
             self.segments.append(new_segment)
 
-
     def extend_segment(self):
         # add a new segment 
         self.add_segment(self.segments[-1].pos())
+        if self.move_speed > 0:
+            self.move_speed *= 0.93
+        else:
+            self.move_speed = 0.2
 
 
     def move(self):

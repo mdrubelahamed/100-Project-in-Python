@@ -1,6 +1,16 @@
-## Inheritance
+- Create a screen
+- Give screen the listing power through we control the snake
+- Use sleep method, so the snake update after a time of delay
+- create the snake and move
+- create food
+- detect collisioin with screen
+- detect collision with tail
+- Increase score and extend the snake 
+
+
+
+- Concept of Inheritence which we are using to create our classes
 ```
-#####################################
 # Inheritance
 class Animal:
     def __init__(self):
@@ -29,69 +39,8 @@ print(rui.num_eyes)
 ```
 
 
-## Control the Snake
 
-
-## COMPELET GAME 
-```
-from turtle import Screen  # Turtle,
-from snake import Snake
-from food import Food
-from scoreboard import Scoreboard
-import time
-
-
-screen = Screen()
-screen.setup(width=600, height=600)
-screen.bgcolor("black")
-screen.title("Welcome to The Snake Game!")
-screen.tracer(0)
-
-
-snake = Snake()
-food = Food()
-scoreboard = Scoreboard()
-
-
-screen.listen()
-screen.onkey(fun=snake.up, key="Up")
-screen.onkey(fun=snake.down, key="Down")
-screen.onkey(fun=snake.left, key="Left")
-screen.onkey(fun=snake.right, key="Right")
-
-
-game_is_on = True
-while game_is_on:
-    screen.update()
-    time.sleep(0.2)
-    snake.move()
-
-    # Detect collision with food, increase the score
-    if snake.head.distance(food) < 15:
-        food.refresh()
-        snake.extend_segment()
-        scoreboard.increase_score()
-
-    # Detect collision with wall
-    if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
-        game_is_on = False
-        scoreboard.game_over()
-    
-    # Detect collision with tail
-    for segment in snake.segments:
-        if segment == snake.head:
-            pass
-        elif snake.head.distance(segment) < 10 :
-            game_is_on = False
-            scoreboard.game_over()
-
-
-screen.exitonclick()
-```
-
-## Slicing
-- Example
-
+- Concept of slicing which we are using to detect the collision between snake.head and the other parts of the body
 ```
 piano_keys = ["a", "b", "c", "d", "e", "f", "g"] 
 print(piano_keys[2:5])       # Output: ['c', 'd', 'e']
@@ -108,5 +57,3 @@ complete code before tail
             game_is_on = False
             scoreboard.game_over()
 ```
-
-- Note That day 20 has also include day21
