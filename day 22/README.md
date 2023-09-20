@@ -13,10 +13,10 @@
 
 -  I Create a "Paddle" With Where I Use "Turtle" As a Super Class 
 - Then I Design Two Move_Up And Move_Down Function
-`Self.Shapesize(Stretch_Wid=5, Stretch_Len=1)` Here I Strech My Paddle Length Multiply By 5
+`self.shapesize(stretch_wid=5, stretch_len=1)` Here I Strech My Paddle Length Multiply By 5
 
 - Create The Ball?
-First I Create a File Called `Ball.Py` The Inside This I Create a Ball Turtle, And Create a Move Function Which Change The .xcor() And .ycor()
+First I Create a File Called `ball.py` The Inside This I Create a Ball Turtle, And Create a Move Function Which Change The .xcor() And .ycor()
 So It'S Looks That The Ball Is Moving
 & I Added Also Sleep Time So The Ball Move After a Time Gap
 
@@ -32,3 +32,9 @@ So It'S Looks That The Ball Is Moving
         self.x_move *= -1
 ```
 
+- Then I Added Some Logic By Which If The Ball Goes Or Too Far From The Screnn Either Right Side Or Left Side The Ball Will Reset His Position To The Home Position And If **Goes To The Opposite Side Of Paddle**
+```
+    def reset_postion(self):
+        self.home()
+        self.x_move *= -1
+```
