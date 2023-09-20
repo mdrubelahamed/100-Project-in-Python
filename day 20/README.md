@@ -8,8 +8,10 @@
 - Increase score and extend the snake 
 
 ---
-Note : I create a `difficulty.py` file which is unused, but you can use it by some modification,
+**Note 1--** I create a `difficulty.py` file which is unused, but you can use it by some modification,
 File work: it's change the game sleep time system, so basically before opening the game, it will ask you which level do you want to play the game, by you choice the game start slow, medium, hard
+
+**Note 2--** day21 folder is not present because day21 work is in the day20 folder
 
 ---
 
