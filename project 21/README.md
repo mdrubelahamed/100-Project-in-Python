@@ -39,3 +39,29 @@ So It'S Looks That The Ball Is Moving
         self.x_move *= -1
 ```
 - Also I added two condition where if ball miss the right paddle the point will be goes to the left player and vice-versa
+
+
+- other code
+```
+from turtle import *
+import random
+colormode(255)
+bgcolor("black")
+screen = Screen()
+screen.setup(width=1500,height=800)
+def random_color():
+    R = random.randint(0,255)
+    G = random.randint(0,255)
+    B = random.randint(0,255)
+    return (R,G,B)
+
+
+tur = Turtle()
+r = -15
+tur.hideturtle()
+tur.speed(100)
+while True:
+    tur.color(random_color())
+    tur.circle(radius= r, extent=None, steps=None)
+    r = r - 5
+```

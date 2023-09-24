@@ -11,15 +11,16 @@ class Snake(Turtle):
 
     def __init__(self):
         super().__init__()
+        self.move_speed = 0.2
         self.segments = []
         self.create_snake()
-        self.move_speed = 0.2
         self.head = self.segments[0]
 
 
     def create_snake(self):
         for position in STARTING_POSITIONS:
             self.add_segment(position)
+
 
     def add_segment(self,position):
             new_segment = Turtle(shape="square")
@@ -28,13 +29,22 @@ class Snake(Turtle):
             new_segment.goto(position)
             self.segments.append(new_segment)
 
+
     def extend_segment(self):
         # add a new segment 
         self.add_segment(self.segments[-1].pos())
-        if self.move_speed > 0:
-            self.move_speed *= 0.93
-        else:
-            self.move_speed = 0.2
+        # if self.move_speed > 0:
+        #     self.move_speed *= 0.93
+        # else:
+        #     self.move_speed = 0.2
+
+    
+    def reset(self):
+        for seg in self.segments:
+            seg.goto(1000,1000)
+        self.segments.clear()
+        self.create_snake()
+        self.head = self.segments[0]
 
 
     def move(self):
