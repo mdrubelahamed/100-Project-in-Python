@@ -1,6 +1,24 @@
 ## day 24    
+- what?     
+In today's lesson I know about file system, absolute path, relative path, how to read, write, append file, also about .replace(), .strip() and most importantly .readlines()
 
-# open, read, write files using the "with" keyword
+how .readlines() return a list of every line,
+for ex:
+```
+['Aang\n', 'Zuko\n', 'Appa\n', 'Katara\n', 'Sokka\n', 'Momo\n', 'Uncle Iroh\n', 'Toph']
+```
+- .write()      
+it generally overwrite on the file content, but if the file not present on the current directory it's create the particular file which is really cool
+
+- project   
+with the help of those python features i create many mails where the for every letter the person name will show like - Dear [name], ....<br>
+and the file name was `letter_for_{name}.txt` If any one reading this they can find the code on the `project 23/main.py` file, I am writing this so whenever I want to what i did in the particular project I just get the view of what was the project back in the day     
+✌🏼Peace
+
+---
+
+
+### open, read, write files using the "with" keyword
 - 1 
 ```# with open("project 23\myfile.txt") as file:
 #     contents = file.read()
@@ -15,7 +33,7 @@
 
 ```
 
-## Mail Merging
+### Mail Merging
 
 ---
 #TODO: Create a letter using starting_letter.txt 
