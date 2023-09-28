@@ -1,60 +1,45 @@
+import turtle
 import pandas
-
-data = pandas.read_csv("project 24/weather_data.csv")
-# print(type(data))
-# print(type(data["temp"]))
-
-# data_dict = data.to_dict()
-# print(data_dict["temp"])
-
-# temp_list = data["temp"].to_list()
-# print(temp_list)
-
-# avg_temp = sum(temp_list) / len(temp_list)
-# print(avg_temp)
-
-# print(data["temp"].mean())
+screen = turtle.Screen()
+screen.title("Us state game")
+image = "./project 24/blank_states_img.gif"
+screen.addshape(image)
+turtle.shape(image)
 
 
-# print(data["temp"].max())
-
-# print(data["temp"].min())
-
-# print(data["condition"])
-# print(data.condition)
-
-
-#### ** data.temp.max() == data["temp"].max() is same **
-
-## HOW TO GET THE DATA FROM ROWS
-# print(data[data.day == "Monday"])
-
-# print(data[data.temp == data.temp.max()])
-
-
-# monday = data[data.day == "Monday"]
-# print(monday.condition)
-
-# print(data[data.day == "Monday"].condition)
-
-
-# monday = data[data.day == "Monday"]
-# monday_temp = monday.temp[0]
-## print(monday_temp)
-
-# monday_temp_F = monday_temp * (9/5) + 32
-# print(monday_temp_F)
+data = pandas.read_csv("project 24/50_states.csv")
+all_state = data.state.to_list()
+guessed_state = []
 
 
 
+while len(guessed_state) < 50:
+    answer_state = screen.textinput(title=f"{len(guessed_state)}/50 Guess state name", prompt="Tell another state name?").title()
+    
+    if answer_state == "Exit":
+        missing_state = []
+        for state in all_state:
+            if state not in guessed_state:
+                missing_state.append(state)
 
-## How to create dataframe from scratch
+        df = pandas.DataFrame(missing_state)
+        df.to_csv("project 24/states_to_learn.csv")
+        break  
 
-data_dict = {
-    "students": ["John", "Emily", "Michael"],
-    "scores": [90, 85, 88]
-}
+    if answer_state in all_state:
+        guessed_state.append(answer_state)
 
-data = pandas.DataFrame(data=data_dict)
-print(data)
-data.to_csv("project 24/scratch_data.csv")
+        state_data = data[data.state == answer_state]
+        x_cor = int(state_data.x)
+        y_cor = int(state_data.y)
+
+        new_turtle = turtle.Turtle()
+        new_turtle.hideturtle()
+        new_turtle.penup()
+        new_turtle.goto(x_cor, y_cor)
+        new_turtle.pendown()
+        new_turtle.write(answer_state)
+        # new_turtle.write(state_data.state.item()) ## - Series.item()
+
+# states_to_learn.csv
+
