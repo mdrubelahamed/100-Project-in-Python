@@ -1,59 +1,59 @@
-from module import alphabet,numbers,symbols
+from module import alphabet, numbers, symbols
 
-
-def encode(text,shift):
-    global cipher_text
+def encode(text, shift):
     cipher_text = ""
     for char in text:
         if char in alphabet:
-                l_index = alphabet.index(char)
-                final_index = l_index + shift
-
-                if final_index >= len(alphabet):
-                    final_index = final_index - len(alphabet)
-                    cipher_text += alphabet[final_index]
-                else:
-                    cipher_text += alphabet[final_index]
+            index = alphabet.index(char)
+            final_index = (index + shift) % len(alphabet)
+            cipher_text += alphabet[final_index]
         elif char in symbols:
-                    s_index = symbols.index(char)
-                    final_s_index = s_index + shift
-
-                    if final_s_index >= len(symbols):
-                        final_s_index = final_s_index - len(symbols)
-                        cipher_text += symbols[final_s_index]
-                    else:
-                        cipher_text += symbols[final_s_index]
-
+            index = symbols.index(char)
+            final_index = (index + shift) % len(symbols)
+            cipher_text += symbols[final_index]
         elif char in numbers:
-            n_index = numbers.index(char)
-            final_n_index = n_index + shift
-            
-            if final_n_index >= len(numbers):
-                 final_n_index = final_n_index - len(numbers)
-                 cipher_text += numbers[final_n_index]
-            else:
-                 cipher_text += numbers[final_n_index]
-        
+            index = numbers.index(char)
+            final_index = (index + shift) % len(numbers)
+            cipher_text += numbers[final_index]
         else:
-             cipher_text += char
+            cipher_text += char
 
-    print(f"cipher text {cipher_text}")
+    print(f"Your Cipher Text: {cipher_text}")
 
 
-def decode(cipher_text,shift):
+def decode(secret_text, shift):
     original_text = ""
-    for char in cipher_text:
+    for char in secret_text:
         if char in alphabet:
-            pass
-               
-               
+            original_index = (alphabet.index(char) - shift) % len(alphabet)
+            original_text += alphabet[original_index]
+        elif char in symbols:
+            original_index = (symbols.index(char) - shift) % len(symbols)
+            original_text += symbols[original_index]
+        elif char in numbers:
+            original_index = (numbers.index(char) - shift) % len(numbers)
+            original_text += numbers[original_index]
+        else:
+            original_text += char
+
+    print(f"Your Original Message: {original_text}")
 
 
-action = input("e for encode, d for decode\n").lower()
-text = input("What massage do you want to be secret?\n")
-shift = int(input("Input your secret number?\n"))
+end_cipher_game = False
+while not end_cipher_game:
+    action = input("e for encode, d for decode\n").lower()
+    if action == "e":
+        text = input("Which message do you want to encode?\n")
+    else:
+        text = input("Which message do you want to decode?\n")
+    shift = int(input("Input your secret number?\n"))
 
-if action == "e":
-    encode(text=text, shift=shift)
-elif action == "d":
-    pass
+    if action == "e":
+        encode(text=text, shift=shift)
+    elif action == "d":
+        decode(secret_text=text, shift=shift)
+
+    quit_option = input("If you want to quit, type 'q'. If you want to play again, type 'p'\n").lower()
+
+    if quit_option == "q":
+        end_cipher_game = True

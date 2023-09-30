@@ -1,61 +1,65 @@
-# TEXT ENCRYPTION AND DECRYPTION
-from cipher_text_module import alphabet, logo
+from cipher_text_module import alphabet, numbers, symbols, logo
 
-# print(logo)
-alphabet_length = len(alphabet)
-
-
-def encrypt(plain_text, shift_amount):
-    global cipher_text
+def encode(text, shift):
     cipher_text = ""
-    for letter in plain_text:
-        # if user give any input outside a-z for ex: @#$% etc
-        if letter in alphabet:
-            letter_index = alphabet.index(letter)
-            final_index = letter_index + shift_amount
-            # when final_index is out of range we go back to the first letter
-            if final_index >= alphabet_length:
-                final_index -= 26
-                new_letter = alphabet[final_index]
-                cipher_text += new_letter
-            else:
-                new_letter = alphabet[final_index]
-                cipher_text += new_letter
+    for char in text:
+        if char in alphabet:
+            index = alphabet.index(char)
+            final_index = (index + shift) % len(alphabet)
+            cipher_text += alphabet[final_index]
+        elif char in symbols:
+            index = symbols.index(char)
+            final_index = (index + shift) % len(symbols)
+            cipher_text += symbols[final_index]
+        elif char in numbers:
+            index = numbers.index(char)
+            final_index = (index + shift) % len(numbers)
+            cipher_text += numbers[final_index]
         else:
-            cipher_text += letter
-    print(f"Encoded text is {cipher_text}")
+            cipher_text += char
 
-
-# decryption
-def decrypt(encoded_text, shift_amount):
+    print(f"Your Cipher Text: {cipher_text}")
+    with open("project 8/data.txt", mode="w") as file:
+        file.write(f"The cipher text are {cipher_text}\n\nThe shift number is {shift}")
+    
+    
+def decode(secret_text, shift):
     original_text = ""
-    for letter in encoded_text:
-        if letter in alphabet:
-            final_index = alphabet.index(letter) - shift_amount
-            letter = alphabet[final_index]
-            original_text += letter
+    for char in secret_text:
+        if char in alphabet:
+            original_index = (alphabet.index(char) - shift) % len(alphabet)
+            original_text += alphabet[original_index]
+        elif char in symbols:
+            original_index = (symbols.index(char) - shift) % len(symbols)
+            original_text += symbols[original_index]
+        elif char in numbers:
+            original_index = (numbers.index(char) - shift) % len(numbers)
+            original_text += numbers[original_index]
         else:
-            original_text += letter
-        # in list there are negative indexing so we don't need to use if else statement
-    print(f"Your original text is {original_text}")
+            original_text += char
+            
+    print(f"Your Original Message: {original_text}")
+    with open("project 8/data.txt", mode="w") as file:
+        file.write(f"The Original text text are {original_text}\n\nThe shift number is {shift}")
 
 
-# use for loop to continue the game until user say 'no'
-end_of_loop = False
-while not end_of_loop:
-    direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
-    text = input("Type your message:\n").lower()
-    shift = int(input("Type the shift number:\n"))
-
-    # TODO-1: Create a function called 'encrypt' that takes the 'text' and 'shift' as inputs.
-
-    if direction == "encode":
-        encrypt(plain_text=text, shift_amount=shift)
-    elif direction == "decode":
-        decrypt(encoded_text=text, shift_amount=shift)
+end_cipher_game = False
+while not end_cipher_game:
+    print(logo)
+    action = input("For encode type 'e', For decode type 'd'\n").lower()
+    if action == "e":
+        text = input("Which message do you want to encode?\n").lower()
     else:
-        print("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
-    quit = input("Type 'yes' if you want to do it again or type 'no'.\n")
+        text = input("Which message do you want to decode?\n").lower()
+    shift = int(input("Type your secret number?\n"))
 
-    if quit == "no":
-        end_of_loop = True
+    if action == "e":
+        encode(text=text, shift=shift)
+        
+    elif action == "d":
+        decode(secret_text=text, shift=shift)
+
+    quit_option = input("If you want to quit, type 'q'. If you want to play again, type 'p'\n").lower()
+
+    if quit_option == "q":
+        end_cipher_game = True
