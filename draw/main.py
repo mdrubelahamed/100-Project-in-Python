@@ -43,7 +43,8 @@ def encode(text,shift):
 def decode(cipher_text,shift):
     original_text = ""
     for char in cipher_text:
-          if char in alphabet:
+        if char in alphabet:
+            pass
                
                
 
@@ -55,4 +56,4 @@ shift = int(input("Input your secret number?\n"))
 if action == "e":
     encode(text=text, shift=shift)
 elif action == "d":
-     pass
+    pass
