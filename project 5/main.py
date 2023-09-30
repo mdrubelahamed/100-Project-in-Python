@@ -12,22 +12,22 @@ nr_symbols = int(input(f"How many symbols would you like?\n"))
 # # easy level
 # password = ""
 
-# for letter in range(nr_letters):
+# for _ in range(nr_letters):
 #     password += random.choice(letters)
-# for number in range(nr_numbers):
+# for _ in range(nr_numbers):
 #     password  += random.choice(numbers)
-# for symbol in range(nr_symbols):
+# for _ in range(nr_symbols):
 #     password += random.choice(symbols)
 # print(f"Here is your password: {password}")
 
 
 #hard level
 password_list = []
-for letter in range(nr_letters):
+for _ in range(nr_letters):
     password_list += random.choice(letters)
-for number in range(nr_numbers):
+for _ in range(nr_numbers):
     password_list  += random.choice(numbers)
-for symbol in range(nr_symbols):
+for _ in range(nr_symbols):
     password_list += random.choice(symbols)
 
 random.shuffle(password_list)

@@ -14,9 +14,9 @@ lives = 6
 
 # TODO-3: - Import the logo from hangman_art.py and print it at the start of the game.
 from hangman_art import logo
-
+# print(logo)
 # Testing code
-# print(f'Pssst, the solution is {random_word}.')
+print(f'Pssst, the solution is {random_word}.')
 
 # Create blanks
 blank_list = []
@@ -30,10 +30,10 @@ while not end_of_game:
     # TODO-4: - If the user has entered a letter they've already guessed, print the letter and let them know.
     if guess in blank_list:
         print(f"You have already guessed {guess}")
-    # Check guessed letteryou
+
+    # Check guessed letter
     for i in range(word_length):
         letter = random_word[i]
-        # print(f"Current i: {i}\n Current letter: {letter}\n Guessed letter: {guess}")
         if letter == guess:
             blank_list[i] = letter
 

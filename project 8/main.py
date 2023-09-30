@@ -1,7 +1,7 @@
 # TEXT ENCRYPTION AND DECRYPTION
-from day8module import alphabet, logo
+from cipher_text_module import alphabet, logo
 
-print(logo)
+# print(logo)
 alphabet_length = len(alphabet)
 
 

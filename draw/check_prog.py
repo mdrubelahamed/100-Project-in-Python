@@ -26,7 +26,7 @@
 # sun.goto(x, y)
 # sun.setheading(90)  # Start facing north
 
-# for _ in range(num_rays):
+# for _ in range(num_rays) -
 #     sun.pendown()
 #     sun.begin_fill()  # Start filling
 #     sun.forward(200)  # Length of the ray
@@ -41,8 +41,6 @@
 #     sun.right(gap)  # Rotate for the next ray
 
 # screen.exitonclick()
-
-
 
 
 

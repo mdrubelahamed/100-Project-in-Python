@@ -1,19 +1,55 @@
-# BUILD A PROGRAM WHICH RANDOMLY CHOOSE WHO IS GONNA PAY THE BILL?
 import random
-# It's a game where we give people name who is going to pay the bill
-name_string = input("Give me eveybody's name seperated by comma(,): ")
 
-#use split
-names = name_string.split(",")
-# print(names)
+rock = '''
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+'''
 
-num_item = len(names)-1 #because len print how may item for ex if 5 item it's print 5 but index 5 is out of range so because index start from 0 to len - 1 that's we did this
-random_index = random.randint(0,num_item)
-random_name = names[random_index]
+paper = '''
+    _______
+---'   ____)____
+          ______)
+          _______)
+         _______)
+---.__________)
+'''
 
-#or
-# random_name = random.choice(names)
+scissors = '''
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+'''
+game_image = [rock,paper,scissors]
+user_choice = int(input("Choose between rock(0), paper(1), scissors(2)\n"))
+if user_choice>2:
+    print("Please choose between rock(0), paper(1), scissors(2) ")
+else:
+    print(game_image[user_choice])
+
+    computer_choice = random.randint(0,2)
+    print("Computer Choose:")
+    print(game_image[computer_choice])
+
+    if user_choice == computer_choice:
+        print("Draw")
+    elif user_choice == 0 and computer_choice == 1 :
+        print("you lose")
+    elif user_choice == 0 and computer_choice == 2 :
+        print("you win")
+    elif user_choice == 1 and computer_choice == 0 :
+        print("you win")
+    elif user_choice == 1 and computer_choice == 2 :
+        print("you lose")
+    elif user_choice == 2 and computer_choice == 0 :
+        print("you lose")
+    elif user_choice == 2 and computer_choice == 1 :
+        print("you win")
 
 
-
-print(f"{random_name} is going to pay the bill today!")
