@@ -1,6 +1,18 @@
-## Final project
-# caesar cipher
+# day 8 project 8
 
+
+---
+---
+### What?
+- in project 8 section we learn how to generate cipher text using python
+- there is a function list.index(item), it will generate the the index number of the particular item
+- using modulus function and len(list) i am able to to go throught the limitation part of the shift number
+- here i also used with with open to stored the running program data
+
+---
+
+
+---
 ### funnction()
 ```
 def my_function(something):

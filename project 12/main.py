@@ -1,6 +1,7 @@
-# GUESS NUMBER GAME WITH EASY AND HARD LEVEL
+# Number guessing with two levels - 1.Easy level 2.Hard level
 from random import randint
-from day12module import logo
+from guess_logo_module import logo
+
 EASY_LEVEL_ATTEMPTS = 10
 HARD_LEVEL_ATTEMPTS = 5
 def check_number(guess,computer_choice,attempts):

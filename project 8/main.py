@@ -20,7 +20,7 @@ def encode(text, shift):
 
     print(f"Your Cipher Text: {cipher_text}")
     with open("project 8/data.txt", mode="w") as file:
-        file.write(f"The cipher text are {cipher_text}\n\nThe shift number is {shift}")
+        file.write(f"The cipher text\n{cipher_text}\n\nThe shift number is {shift}")
     
     
 def decode(secret_text, shift):
@@ -40,7 +40,7 @@ def decode(secret_text, shift):
             
     print(f"Your Original Message: {original_text}")
     with open("project 8/data.txt", mode="w") as file:
-        file.write(f"The Original text text are {original_text}\n\nThe shift number is {shift}")
+        file.write(f"The Original text\n{original_text}\n\nThe shift number is {shift}")
 
 
 end_cipher_game = False

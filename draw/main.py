@@ -1,59 +1,36 @@
-from module import alphabet, numbers, symbols
-
-def encode(text, shift):
-    cipher_text = ""
-    for char in text:
-        if char in alphabet:
-            index = alphabet.index(char)
-            final_index = (index + shift) % len(alphabet)
-            cipher_text += alphabet[final_index]
-        elif char in symbols:
-            index = symbols.index(char)
-            final_index = (index + shift) % len(symbols)
-            cipher_text += symbols[final_index]
-        elif char in numbers:
-            index = numbers.index(char)
-            final_index = (index + shift) % len(numbers)
-            cipher_text += numbers[final_index]
-        else:
-            cipher_text += char
-
-    print(f"Your Cipher Text: {cipher_text}")
+import os
+from module import logo
 
 
-def decode(secret_text, shift):
-    original_text = ""
-    for char in secret_text:
-        if char in alphabet:
-            original_index = (alphabet.index(char) - shift) % len(alphabet)
-            original_text += alphabet[original_index]
-        elif char in symbols:
-            original_index = (symbols.index(char) - shift) % len(symbols)
-            original_text += symbols[original_index]
-        elif char in numbers:
-            original_index = (numbers.index(char) - shift) % len(numbers)
-            original_text += numbers[original_index]
-        else:
-            original_text += char
+data = {}
 
-    print(f"Your Original Message: {original_text}")
+def bid():
+    higest_bid = 0
+    highest_bidder = ""
+
+    for bidder,bid_amt in data.items():
+        if bid_amt > higest_bid:
+            higest_bid = bid_amt
+            highest_bidder = bidder
+    print(f"Highest bidder is {highest_bidder}, with a bid of ${higest_bid}")
 
 
-end_cipher_game = False
-while not end_cipher_game:
-    action = input("e for encode, d for decode\n").lower()
-    if action == "e":
-        text = input("Which message do you want to encode?\n")
-    else:
-        text = input("Which message do you want to decode?\n")
-    shift = int(input("Input your secret number?\n"))
+auction_live = True
 
-    if action == "e":
-        encode(text=text, shift=shift)
-    elif action == "d":
-        decode(secret_text=text, shift=shift)
+while auction_live:
+    print(logo)
+    print("Welcome to the secret bid auction")
+    person = input("What is your name? ")
+    amt = float(input("What is your bid $"))
 
-    quit_option = input("If you want to quit, type 'q'. If you want to play again, type 'p'\n").lower()
+    data[person] = amt
 
-    if quit_option == "q":
-        end_cipher_game = True
+    bidder_left = input("Anyone wants to bid type 'y' or type 'n'\n").lower()
+    os.system("cls")
+    if bidder_left == 'n':
+        auction_live = False
+
+bid()
+
+
+    
