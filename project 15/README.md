@@ -1,4 +1,16 @@
-## SET UP integrated development environment
+# Day 15 Project 15
+
+---
+---
+### What?
+- project - Coffee Machine Maker
+- we use lot of functions to get the job done which is great
+- **Most Importatn** Nested Dictionary 
+
+
+---
+---
+
 
 IDE - integrated development environment
 we will setup pycharm today
@@ -14,3 +26,6 @@ we will setup pycharm today
                 # else:
                 #     make_more_coffee = False
                     ```
+
+
+        

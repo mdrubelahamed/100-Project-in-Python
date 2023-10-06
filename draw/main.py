@@ -1,36 +1,40 @@
-import os
-from module import logo
+org_str = {
+    "company_name": "ABC limited",
+    "departments": {
+        "HR": {
+            "employees": {
+                "101": {
+                        "name": "Rubel",
+                        "position": "HR Head",
+                        "salay": 60000,
+                },
+                "102": {
+                        "name": "Bob",
+                        "position": "Junior HR",
+                        "salay": 25000,
+                }
+            },
+        },
+        "IT":{
+            "employees":{
+                "201": {
+                    "name": "Rohan",
+                    "position": "Seniour IT Manager",
+                    "salary": 100000
+                },
+                "202": {
+                    "name": "Jojo",
+                    "position": "Jounier IT Devloper",
+                    "salary": 30000
+                }
+            }
+        }
+        
+    }
+}
 
 
-data = {}
 
-def bid():
-    higest_bid = 0
-    highest_bidder = ""
+# Find Jojo Salary
 
-    for bidder,bid_amt in data.items():
-        if bid_amt > higest_bid:
-            higest_bid = bid_amt
-            highest_bidder = bidder
-    print(f"Highest bidder is {highest_bidder}, with a bid of ${higest_bid}")
-
-
-auction_live = True
-
-while auction_live:
-    print(logo)
-    print("Welcome to the secret bid auction")
-    person = input("What is your name? ")
-    amt = float(input("What is your bid $"))
-
-    data[person] = amt
-
-    bidder_left = input("Anyone wants to bid type 'y' or type 'n'\n").lower()
-    os.system("cls")
-    if bidder_left == 'n':
-        auction_live = False
-
-bid()
-
-
-    
+print(org_str["departments"]["IT"]["employees"]["202"]["salary"])

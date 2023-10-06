@@ -1,8 +1,6 @@
-# Build a Calculator
+# calculator
 
-from calculator_module import logo
-
-def additon(num1, num2):
+def addition(num1, num2):
     return num1 + num2
 
 def subtraction(num1, num2):
@@ -14,35 +12,16 @@ def multiplication(num1, num2):
 def division(num1, num2):
     return num1 / num2
 
-def remainder(num1, num2):
-    quotient = num1 // num2
-    final_value = num1 //(num2 * quotient)
-    return final_value
-
-def quotient(num1, num2):
-    return num1 // num2
-
-def percentage(num1, num2):
-    final_value = round((num1 /num2) * 100, 2)
-    return final_value
-
 
 operations = {
-    "+": additon,
+    "+" : addition,
     "-": subtraction,
     "*": multiplication,
-    "/": division,
-    "r": remainder,
-    "p": percentage,
-    
+    "/": division
 }
 
 
 def calculator():
-    """It's a basic calculator\n
-    which perform additon, subtraction, multiplication and division and more."""
-    
-    print(logo)
     num1 = float(input("What is first number: "))
     
     operation_left = True
@@ -55,10 +34,10 @@ def calculator():
 
         cal_func = operations[op]
 
-        if cal_func == division or remainder or quotient:
+        if cal_func == division:
             if num2 == 0:
                 print("ZeroDivisionError")
-                return 
+                return
             else:
                 result = cal_func(num1, num2)
         else:
@@ -66,21 +45,13 @@ def calculator():
         
         print(f"{num1} {op} {num2} = {result}")
 
-        go_on = input(f"type 'y'  for continue with {result} or 'n' for a new calculation, to exit type 'e'\n").lower()
+        go_on = input("type 'y'  for continue or 'n' for a new calculation, to exit type 'e'\n").lower()
         if go_on == 'y':
             num1 = result
         elif go_on == 'n':
             calculator()
         else:
             operation_left = False
-
-
-
-
+    
+        
 calculator()
-
-
-
-
-
-

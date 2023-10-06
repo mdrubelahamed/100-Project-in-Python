@@ -1,6 +1,6 @@
 import random
 import os
-from day14module import data
+from higher_lower_module import data
 from art import vs,logo
 
 def format_data(account):
@@ -9,7 +9,7 @@ def format_data(account):
     country = account["country"]
     return f"{name}, a {description}, from {country}"
 
-def check_answer(guess,a_followers,b_followers):
+def check_answer(guess, a_followers, b_followers):
     if a_followers > b_followers:
         return guess == "a"
     else:
@@ -36,7 +36,7 @@ while game_should_continue:
     a_follower_count = account_a["follower_count"]
     b_followers_count = account_b["follower_count"]
 
-    is_correct = check_answer(guess,a_follower_count,b_followers_count)
+    is_correct = check_answer(guess, a_follower_count, b_followers_count)
 
     if is_correct:
         score += 1
