@@ -15,7 +15,9 @@ with open(f"./project {projno}/main.py", mode="w") as f1, open(f"./project {proj
 ---
 ---
 ### What?
+- Project --> 
 
+-
 
 ---
 ---""")

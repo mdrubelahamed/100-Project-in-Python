@@ -127,12 +127,252 @@ These problems cover various aspects of dictionary manipulation and usage. Solvi
 """
 
 
+#########################################################
+```
+# Nested Dictionary
+org_str = {
+    "company_name": "ABC limited",
+    "departments": {
+        "HR": {
+            "employees": {
+                "101": {
+                        "name": "Rubel",
+                        "position": "HR Head",
+                        "salay": 60000,
+                },
+                "102": {
+                        "name": "Bob",
+                        "position": "Junior HR",
+                        "salay": 25000,
+                }
+            },
+        },
+        "IT":{
+            "employees":{
+                "201": {
+                    "name": "Rohan",
+                    "position": "Seniour IT Manager",
+                    "salary": 100000
+                },
+                "202": {
+                    "name": "Jojo",
+                    "position": "Jounier IT Devloper",
+                    "salary": 30000
+                }
+            }
+        }
+        
+    }
+}
 
+
+
+# Find Jojo Salary
+
+print(org_str["departments"]["IT"]["employees"]["202"]["salary"])
+
+```
 
 
 ---
 > dir(__builtins__)
 
-['ArithmeticError', 'AssertionError', 'AttributeError', 'BaseException', 'BlockingIOError', 'BrokenPipeError', 'BufferError', 'BytesWarning', 'ChildProcessError', 'ConnectionAbortedError', 'ConnectionError', 'ConnectionRefusedError', 'ConnectionResetError', 'DeprecationWarning', 'EOFError', 'Ellipsis', 'EncodingWarning', 'EnvironmentError', 'Exception', 'False', 'FileExistsError', 'FileNotFoundError', 'FloatingPointError', 'FutureWarning', 'GeneratorExit', 'IOError', 'ImportError', 'ImportWarning', 'IndentationError', 'IndexError', 'InterruptedError', 'IsADirectoryError', 'KeyError', 'KeyboardInterrupt', 'LookupError', 'MemoryError', 'ModuleNotFoundError', 'NameError', 'None', 'NotADirectoryError', 'NotImplemented', 'NotImplementedError', 'OSError', 'OverflowError', 'PendingDeprecationWarning', 'PermissionError', 'ProcessLookupError', 'RecursionError', 'ReferenceError', 'ResourceWarning', 'RuntimeError', 'RuntimeWarning', 'StopAsyncIteration', 'StopIteration', 'SyntaxError', 'SyntaxWarning', 'SystemError', 'SystemExit', 'TabError', 'TimeoutError', 'True', 'TypeError', 'UnboundLocalError', 'UnicodeDecodeError', 'UnicodeEncodeError', 'UnicodeError', 'UnicodeTranslateError', 'UnicodeWarning', 'UserWarning', 'ValueError', 'Warning', 'WindowsError', 'ZeroDivisionError', '__build_class__', '__debug__', '__doc__', '__import__', '__loader__', '__name__', '__package__', '__spec__', 'abs', 'aiter', 'all', 'anext', 'any', 'ascii', 'bin', 'bool', 'breakpoint', 'bytearray', 'bytes', 'callable', 'chr', 'classmethod', 'compile', 'complex', 'copyright', 'credits', 'delattr', 'dict', 'dir', 'divmod', 'enumerate', 'eval', 'exec', 'exit', 'filter', 'float', 'format', 'frozenset', 'getattr', 'globals', 'hasattr', 'hash', 'help', 'hex', 'id', 'input', 'int', 'isinstance', 'issubclass', 'iter', 'len', 'license', 'list', 'locals', 'map', 'max', 'memoryview', 'min', 'next', 'object', 'oct', 'open', 'ord', 'pow', 'print', 'property', 'quit', 'range', 'repr', 'reversed', 'round', 'set', 'setattr', 'slice', 'sorted', 'staticmethod', 'str', 'sum', 'super', 'tuple', 'type', 'vars', 'zip']
-
 ---
+
+
+
+
+
+
+
+--------
+--------
+--------
+# Snake game whole code 
+- `main.py`
+```
+from turtle import Screen
+from snake import Snake
+from food import Food
+from scoreboard import Scoreboard
+import time
+
+
+screen = Screen()
+screen.setup(width=600, height=600)
+screen.bgcolor("black")
+screen.title("Py Snake Game")
+screen.tracer(0)
+
+
+snake = Snake()
+food = Food()
+scoreboard = Scoreboard()
+
+screen.listen()
+screen.onkey(fun=snake.up, key="Up")
+screen.onkey(fun=snake.down, key="Down")
+screen.onkey(fun=snake.left, key="Left")
+screen.onkey(fun=snake.right, key="Right")
+
+not_endgame = True
+while not_endgame:
+    screen.update()
+    time.sleep(0.2)
+    snake.move()
+
+    # Detect collision with food
+    if snake.head.distance(food) < 15:
+        food.reset_position()
+        snake.extend_segment()
+        scoreboard.increase_score()
+
+    # Detect collisioin with screen
+    if snake.head.xcor() > 293 or snake.head.xcor() < -293 or snake.head.ycor() > 293 or snake.head.ycor() < -293:
+        scoreboard.save_highest_score()
+        scoreboard.game_over()
+        not_endgame = False
+
+
+    # Detect collison with tail
+    for segment in snake.segments:
+        if segment == snake.head:
+            pass
+        else:
+            if snake.head.distance(segment) < 10:
+                snake.game_over()
+                scoreboard.save_highest_score()
+                scoreboard.game_over()
+                not_endgame = False
+
+
+screen.exitonclick()
+```
+- `snake.py`
+```
+from turtle import Turtle
+
+STARTING_POSITON = [(0, 0), (-20, 0), (-40, 0)]
+
+class Snake():  
+    def __init__(self):
+        self.segments = []
+        self.create_body()
+        self.head = self.segments[0]
+
+
+    def create_body(self):
+        for position in STARTING_POSITON:
+            self.add_segment(position)
+
+    def add_segment(self,pos):
+        new_segment = Turtle("circle")
+        new_segment.color("green")
+        new_segment.penup()
+        new_segment.goto(pos)
+        self.segments.append(new_segment)
+
+    
+    def extend_segment(self):
+        self.add_segment(self.segments[len(self.segments) -1].pos())
+
+
+    def move(self):
+        for pos in range(len(self.segments) -1, 0, -1):
+            new_x = self.segments[pos - 1].xcor()
+            new_y = self.segments[pos - 1].ycor()
+            
+            self.segments[pos].goto(new_x, new_y)
+
+        self.head.forward(20)
+        
+        
+    def game_over(self):
+        for seg in self.segments:
+            seg.goto(1000,1000)
+            self.segments.clear()
+
+
+    def up(self):
+        if self.head.heading() != 270:
+            self.head.setheading(90)
+        
+    def down(self):
+        if self.head.heading() != 90:
+            self.head.setheading(270)
+        
+    def left(self):
+        if self.head.heading() != 0:
+            self.head.setheading(180)
+        
+    def right(self):
+        if self.head.heading() != 180:
+            self.head.setheading(0)
+    
+```
+
+- `food.py`
+```
+from turtle import Turtle
+import random
+
+class Food(Turtle):
+    def __init__(self):
+        super().__init__()
+        self.shape("circle")
+        self.shapesize(stretch_len=0.5, stretch_wid=0.5)    
+        self.color("lightgreen")
+        self.penup()
+        self.speed(10)
+        self.reset_position()
+        
+    def reset_position(self):
+        self.goto(random.randint(-280,280), random.randint(-280,260))
+
+
+```
+- `scoreboard.py`
+```
+from turtle import Turtle
+FONT = ("Arial", 20, "bold")
+
+class Scoreboard(Turtle):
+    def __init__(self, shape: str = "classic", undobuffersize: int = 1000, visible: bool = True) -> None:
+        super().__init__(shape, undobuffersize, visible)
+        self.score = 0
+        with open("draw/snake_data.txt", mode="r") as file:
+            self.high_score = int(file.read())
+        self.create_scoreboard()
+
+    def create_scoreboard(self):
+        self.clear()
+        self.hideturtle()
+        self.color("blue")
+        self.penup()
+        self.goto(-30,270)
+        self.pendown()
+        self.write(f"Score: {self.score}     Higherst Score: {self.high_score}", align="center", font=FONT)
+        
+    def increase_score(self):
+        self.score += 1
+        self.create_scoreboard()
+        
+    def save_highest_score(self):
+        if self.score >= self.high_score:
+            self.high_score = self.score
+            with open("draw/snake_data.txt", mode="w") as file:
+                file.write(str(self.high_score))
+                
+    def game_over(self):
+        self.hideturtle()
+        self.penup()
+        self.goto(0, 0)
+        self.pendown()
+        self.write(f"GAME OVER!", align="center", font=FONT)
+```
+
+
+--------
+--------
+--------
+--------

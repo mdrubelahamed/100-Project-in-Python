@@ -33,11 +33,6 @@ class Snake(Turtle):
     def extend_segment(self):
         # add a new segment 
         self.add_segment(self.segments[-1].pos())
-        # if self.move_speed > 0:
-        #     self.move_speed *= 0.93
-        # else:
-        #     self.move_speed = 0.2
-
     
     def reset(self):
         for seg in self.segments:
