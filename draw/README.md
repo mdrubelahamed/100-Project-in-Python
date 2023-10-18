@@ -56,22 +56,7 @@ class Guess(Level):
 
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
------------------------------
+-----------------------------------------------------------------------------
 ```
 """
 You are building a weather application that needs to store temperature data for different cities. Create a dictionary where the keys are city names and the values are lists of temperature readings. Perform the following tasks:
@@ -179,15 +164,7 @@ print(org_str["departments"]["IT"]["employees"]["202"]["salary"])
 
 ---
 
-
-
-
-
-
-
---------
---------
---------
+-------------------------------------------------------------------------------------------------------------
 # Snake game whole code 
 - `main.py`
 ```
@@ -371,8 +348,77 @@ class Scoreboard(Turtle):
         self.write(f"GAME OVER!", align="center", font=FONT)
 ```
 
+---
+-------------------------------------------------------------------------------------------------------------
 
---------
---------
---------
---------
+- csv data
+```
+    # data = file.readlines()
+    # print(data)
+```
+
+```
+# import csv
+# with open("draw/weather_data.csv") as file:
+#     data = list(csv.reader(file, delimiter=","))
+#     # print(data)
+#     temperatures = []
+#     for row in data:
+#         if row[1] != 'temp':
+#             temperatures.append(int(row[1]))
+#     print(temperatures)
+
+
+import csv
+with open("draw/weather_data.csv") as file:
+    data = csv.reader(file, delimiter=',')
+    # print(data)
+    days = []
+    temperatures = []
+    conditions = []
+    for row in data:
+        if row[0] != 'day' or row[1] != 'temp' or row[2] != 'condition':
+            days.append(row[0]) 
+            temperatures.append(int(row[1])) 
+            conditions.append(row[2]) 
+    print(days)
+    print(temperatures)
+    print(conditions)```
+
+```
+
+```
+import pandas
+
+df = pandas.DataFrame(
+    {
+        "Name": [
+            "Vikrant Sinha", "Koma Parekh", "Priya Malhotra", "Avika Gaur", "Priyanka Kapoor"
+            ],
+        "City": [
+            "Dehradun", "Ahemadabad", "Mumbai", "Ambala", "Delhi"
+            ],
+        "State": [
+            "Uttrakhand", "Gujrat", "Maharastra", "Punjab", "Delhi"
+        ],
+        "Postal Code": [
+            233001, 592114, 245771, 301137, 243722
+        ],
+        "Age": [
+            22, 25, 35, 46, 20
+        ],
+    }
+)
+
+# print(df)
+
+# print(df["Postal Code"])
+# print(df.describe())
+
+print(df.index)
+
+
+# ages = pandas.Series([22,25,20,46,25], name="Age")
+# print(ages)
+# print(ages.max())
+```
