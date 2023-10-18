@@ -6,7 +6,7 @@ titanic = pd.read_csv("project 24/titanic_data.csv")
 # print(titanic.tail(8))
 # print(titanic.dtypes)
 
-titanic.to_excel("titanic_data.xlsx", sheet_name="passengers", index=False)
+titanic.to_excel("project 24/titanic_data.xlsx", sheet_name="passengers", index=False)
 
 titanic = pd.read_excel("titanic_data.xlsx", sheet_name="passengers")
 

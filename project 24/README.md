@@ -186,7 +186,10 @@ turtle.mainloop()
 
 ```
 
+-------------------------------------------------------------
+## Practice Pandas
 
+- how to select a subset of DataFrame
 
 
 
