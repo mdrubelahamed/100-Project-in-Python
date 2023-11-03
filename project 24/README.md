@@ -379,6 +379,4 @@ while len(guessed_state) < 50:
         new_turtle.pendown()
         new_turtle.write(answer_state)  # new_turtle.write(state_data.state.item()) ## - Series.item()
 
-# states_to_learn.csv
-
 ```

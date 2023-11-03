@@ -12,17 +12,17 @@
 #     print(temperatures)
 
 
-import pandas as pd
+# import pandas as pd
 
-data = pd.read_csv("project 24/weather_data.csv")
-# print(data)
+# data = pd.read_csv("project 24/weather_data.csv")
+# # print(data)
 # print(type(data))
 # print(type(data["temp"]))
 
 # data_dict = data.to_dict()
 # print(data_dict)
 
-temp_list = data["temp"].to_list()
+# temp_list = data["temp"].to_list()
 # print(temp_list)
 
 # # avarage temperature
@@ -103,4 +103,103 @@ temp_list = data["temp"].to_list()
 
 
 
-#####################
+# #####################
+# import turtle
+# import pandas as pd
+# screen = turtle.Screen()
+# screen.title("Us States Game")
+
+# image = "project 24/blank_states_img.gif"
+# screen.addshape(image, shape=None)
+
+# turtle.shape(image)
+
+# # def get_mouse_click_coor(x,y):
+# #     print(x,y)
+
+# # turtle.onscreenclick(get_mouse_click_coor)
+
+# data = pd.read_csv("project 24/50_states.csv")
+
+# guessed_states = []
+# missed_states = []
+# score = 0
+# all_states = data.state.to_list()
+# # print(all_states)
+
+# while len(guessed_states) < 50:
+#     answer_state = turtle.textinput(title=f"{score}/50 Guess state name", prompt="Type a state name?").title()
+
+#     if answer_state == "Exit":
+#         for state in all_states:
+#             if state not in guessed_states:
+#                 missed_states.append(state)
+#         df = pd.DataFrame(missed_states)
+#         df.to_csv("project 24/US_forgot_states_name.csv", index=False)
+#         break
+
+
+#     if answer_state in all_states:
+#         score += 1
+#         guessed_states.append(answer_state)
+#         state_row = data[data.state == answer_state]  
+#         x_cor = int(state_row.x.iloc[0])
+#         y_cor = int(state_row.y.iloc[0])
+#         # print(x_cor, y_cor)
+        
+#         new_turtle = turtle.Turtle()
+#         new_turtle.hideturtle()
+#         new_turtle.penup()
+#         new_turtle.goto(x_cor, y_cor)
+#         new_turtle.pendown()
+#         new_turtle.color("green")
+#         new_turtle.write(answer_state, font=("Arial",8,"normal"))
+        
+
+
+
+
+import turtle
+import pandas as pd
+screen = turtle.Screen()
+# width = height = 1000
+# screen.screensize(width, height)
+
+img = "project 24/Indian-state.gif"
+screen.addshape(img)
+turtle.shape(img)
+
+data = pd.read_csv("project 24/Indian_state_data.csv")
+
+all_states = data.state.to_list()
+
+guessed_states = []
+forgot_states = []
+score = 0
+
+while len(guessed_states) < 29:
+    answer_state = screen.textinput(title=f"{score}/28 Guess State Name", prompt="Type a state name?").title()
+
+    if answer_state in all_states:
+        guessed_states.append(answer_state)
+        state_row = data[data.state == answer_state]
+        x_cor = int(state_row.x.iloc[0])
+        y_cor = int(state_row.y.iloc[0])
+        # print(x_cor, y_cor)
+        
+        new_turtle = turtle.Turtle()
+        new_turtle.hideturtle()
+        new_turtle.penup()
+        new_turtle.goto(x_cor, y_cor)
+        new_turtle.pendown()
+        new_turtle.write(answer_state, align="center", font=("Arial", 7, "normal"))
+
+
+    if answer_state == "Exit":
+        for state in all_states:
+            if state not in guessed_states:
+                forgot_states.append(state)
+        
+        df = pd.DataFrame(forgot_states)
+        df.to_csv("project 24/India_forgot_state_name.csv", index=False)
+        break
