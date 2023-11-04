@@ -1,74 +1,67 @@
-### day 23
----
-- what?  
-- project  
-The project is basically a turtle cross the road means one side of the screen to an another side, in between there are many cars which are coming if the turtle make collision with any cars the game will over, and after reaching on the other side the level will be increased, meaning the car will get faster on each level and the turtle will be back on his orginal position
+# PING PONG GAME
 
-- lesson  
-Building project with the help of class, oop concept, in first it looks really hard to me but the more i learn the more it's become cool for me and now i feel it's is more efficient way of creating project, we should build project around oop concept
-i learn about .xcor() and .ycor() which is really efficient for changing position, detecting position,
+## What?
+- Create Screen
+- Create Paddle in oop
+- move the paddle
+- Ball bounce it hits the upper and lower side of the screen
+- Ball contact with the paddle
 
-in `car_manager.py` file I learn how to generate mulitple cars at the same time, and also at the same time choosing random colors for every particular car,  
-  
-  
-*important new* - I learn how to slow the cars speed or as i can say how to make optimal speed for cars,  
-by using random number choice
+
+## Note How I Am Doing It?
+-  Setup a 1000,600 Screen  
+
+-  I Create a "Paddle" With Where I Use "Turtle" As a Super Class 
+- Then I Design Two Move_Up And Move_Down Function
+`self.shapesize(stretch_wid=5, stretch_len=1)` Here I Strech My Paddle Length Multiply By 5
+
+- Create The Ball?
+First I Create a File Called `ball.py` The Inside This I Create a Ball Turtle, And Create a Move Function Which Change The .xcor() And .ycor()
+So It'S Looks That The Ball Is Moving
+& I Added Also Sleep Time So The Ball Move After a Time Gap
+
+- I Added a Logic Where The Ball Will Bounce If The Ball Hit The Upper or Lower Side Of The Screen(By Reversing The Y-Axis Direction)
 ```
-random_chance = random.randint(1,19)
-            if random_chance == 1:
-            ...
+    def bounce_y(self):
+        self.y_move *= -1
 ```
-so in here as you can see i use ` if random_chance == 1` which will reduce to generate cars, it will only generate cars when the ranodm change will be equal = 1
+
+- Then I Added a Logic Where If The Ball Hits The Paddle'S The Ball Change his Direction In The Opposite Where I Change X-Axis Direction, So The Ball Move To The Opposite Direction
+```
+    def bounce_x(self):
+        self.x_move *= -1
+```
+
+- Then I Added Some Logic By Which If The Ball Goes Or Too Far From The Screnn Either Right Side Or Left Side The Ball Will Reset His Position To The Home Position And If **Goes To The Opposite Side Of Paddle**
+```
+    def reset_postion(self):
+        self.home()
+        self.x_move *= -1
+```
+- Also I added two condition where if ball miss the right paddle the point will be goes to the left player and vice-versa
 
 
----
-
-
-
-
-my `car.py` code
-``` from turtle import Turtle
+- other code
+```
+from turtle import *
 import random
-
-class Car(Turtle):
-    def __init__(self,pos):
-        super().__init__()
-        self.shape("square")
-        self.shapesize(stretch_len=2, stretch_wid=1)
-        self.color(self.random_color())
-        self.penup()
-        self.goto(pos)
-
-    def random_color(self):
-        R = random.randint(50,255)
-        G = random.randint(50,255)
-        B = random.randint(50,255)
-        return (R,G,B)
-    
-    def move(self):
-        self.backward(random.randint(1,10))
-    
-    def reset_position(self,pos2):
-        self.goto(pos2)
-```
+colormode(255)
+bgcolor("black")
+screen = Screen()
+screen.setup(width=1500,height=800)
+def random_color():
+    R = random.randint(0,255)
+    G = random.randint(0,255)
+    B = random.randint(0,255)
+    return (R,G,B)
 
 
-
-
-- Note - I just change all folder name day to project... here is the  code
-```
-import os
-
-# Define the path to the parent folder
-parent_folder = os.getcwd()
-
-# Loop through the folders and rename them
-for day_number in range(1, 22):
-    old_folder_name = os.path.join(parent_folder, f'day {day_number}')
-    new_folder_name = os.path.join(parent_folder, f'project {day_number}')
-    
-    # Use os.rename to rename the folder
-    os.rename(old_folder_name, new_folder_name)
-
-print("Folders renamed successfully.")
+tur = Turtle()
+r = -15
+tur.hideturtle()
+tur.speed(100)
+while True:
+    tur.color(random_color())
+    tur.circle(radius= r, extent=None, steps=None)
+    r = r - 5
 ```

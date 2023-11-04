@@ -1,40 +1,54 @@
-import time
 from turtle import Screen
-from player import Player
-from car_manager import CarManager
+from paddle import Paddle
+from ball import Ball
 from scoreboard import Scoreboard
+import time
 
 screen = Screen()
-screen.setup(width=600, height=600)
+screen.setup(width=1000, height=600)
+screen.bgcolor("black")
+screen.title("Ping Pong Game")
 screen.tracer(0)
 
-player = Player()
-car_manager = CarManager()
+
+r_paddle = Paddle((480,0))
+l_paddle = Paddle((-480,0))
+ball = Ball()
 scoreboard = Scoreboard()
 
 screen.listen()
-screen.onkey(fun=player.move_up, key="Up")
+screen.onkey(fun=r_paddle.move_up, key="Up")
+screen.onkey(fun=r_paddle.move_down, key="Down")
+screen.onkey(fun=l_paddle.move_up, key="w")
+screen.onkey(fun=l_paddle.move_down, key="s")
+
 
 game_is_on = True
 while game_is_on:
-    time.sleep(0.2)
+    time.sleep(ball.move_speed)
     screen.update()
+    ball.move()
 
-    car_manager.create_car()
-    car_manager.move_cars()
+    if ball.ycor() > 280 or ball.ycor() < -280:
+        ball.bounce_y()
 
 
-    # Detect collision with turtle and cars 
-    for car in car_manager.all_cars:
-        if car.distance(player) < 20:
-            game_is_on = False
-            scoreboard.game_over()
+    # Detect collision with paddle
+    if ball.distance(r_paddle) < 50 and ball.xcor() > 440 or ball.distance(l_paddle) < 50 and ball.xcor() < -440:
+        ball.bounce_x()
 
-    # Detect when the turtle reaches the other side(Succesful crossing)
-    if player.is_finish_line():
-        player.go_to_start()
-        car_manager.level_up()
-        scoreboard.increase_level()
+    # Detect when the ball misses the paddle 
 
+    # Detect when R Paddle misses
+    if ball.xcor() > 490:
+        ball.reset_postion()
+        scoreboard.l_point()
+
+
+    # Detect when L Paddle misses
+    if ball.xcor() < -490:
+        ball.reset_postion()
+        scoreboard.r_point()
 
 screen.exitonclick()
+

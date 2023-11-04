@@ -1,17 +1,40 @@
-#TODO: Create a letter using starting_letter.txt 
-#for each name in invited_names.txt
-#Replace the [name] placeholder with the actual name.
-#Save the letters in the folder "ReadyToSend".
+import time
+from turtle import Screen
+from player import Player
+from car_manager import CarManager
+from scoreboard import Scoreboard
 
-with open("project 23/Input/Letters/starting_letter.txt") as mail_head, open("project 23/Input/Names/invited_names.txt") as invited_names:
-    mail_contents = mail_head.read()
-    name_list = invited_names.readlines()
+screen = Screen()
+screen.setup(width=600, height=600)
+screen.tracer(0)
+
+player = Player()
+car_manager = CarManager()
+scoreboard = Scoreboard()
+
+screen.listen()
+screen.onkey(fun=player.move_up, key="Up")
+
+game_is_on = True
+while game_is_on:
+    time.sleep(0.2)
+    screen.update()
+
+    car_manager.create_car()
+    car_manager.move_cars()
 
 
-    for name in name_list:
-        name = name.strip("\n")
-        final_mail = mail_contents.replace("[name]", name)
+    # Detect collision with turtle and cars 
+    for car in car_manager.all_cars:
+        if car.distance(player) < 20:
+            game_is_on = False
+            scoreboard.game_over()
 
-        with open(f"project 23/Output/ReadyToSend/letter_for_{name}.txt", mode="w") as readyToSendMail:
-            readyToSendMail.write(final_mail)
+    # Detect when the turtle reaches the other side(Succesful crossing)
+    if player.is_finish_line():
+        player.go_to_start()
+        car_manager.level_up()
+        scoreboard.increase_level()
 
+
+screen.exitonclick()
