@@ -1,9 +1,9 @@
-# with open("project 24/weather_data.csv") as file:
+# with open("project 25/weather_data.csv") as file:
 #     data = file.readlines()
 #     print(data)
 
 # import csv
-# with open("project 24/weather_data.csv") as file:
+# with open("project 25/weather_data.csv") as file:
 #     data = csv.reader(file)
 #     temperatures = []
 #     for row in data:
@@ -14,7 +14,7 @@
 
 # import pandas as pd
 
-# data = pd.read_csv("project 24/weather_data.csv")
+# data = pd.read_csv("project 25/weather_data.csv")
 # # print(data)
 # print(type(data))
 # print(type(data["temp"]))
@@ -71,7 +71,7 @@
 
 # df = pd.DataFrame(data_dict)
 # # print(df)
-# df.to_csv("project 24/student_data_from_scratch.csv")
+# df.to_csv("project 25/student_data_from_scratch.csv")
 
 
 
@@ -80,7 +80,7 @@
 
 # import pandas as pd
 
-# data = pd.read_csv("project 24/2018_Central_Park_Squirrel_Census_-_Squirrel_Data.csv")
+# data = pd.read_csv("project 25/2018_Central_Park_Squirrel_Census_-_Squirrel_Data.csv")
 # # fur_color = data["Primary Fur Color"]
 # # print(fur_color)
 
@@ -99,7 +99,7 @@
 
 # df = pd.DataFrame(data_dict)
 
-# df.to_csv("project 24/squirrel_count.csv")
+# df.to_csv("project 25/squirrel_count.csv")
 
 
 
@@ -109,7 +109,7 @@ import pandas as pd
 screen = turtle.Screen()
 screen.title("Us States Game")
 
-image = "project 24/blank_states_img.gif"
+image = "project 25/blank_states_img.gif"
 screen.addshape(image, shape=None)
 
 turtle.shape(image)
@@ -119,7 +119,7 @@ turtle.shape(image)
 
 # turtle.onscreenclick(get_mouse_click_coor)
 
-data = pd.read_csv("project 24/50_states.csv")
+data = pd.read_csv("project 25/50_states.csv")
 
 guessed_states = []
 score = 0
@@ -137,7 +137,7 @@ while len(guessed_states) < 50:
         
         missed_states = [state for state in all_states if state not in guessed_states]
         df = pd.DataFrame(missed_states)
-        df.to_csv("project 24/USA_forgot_states_name.csv", index=False)
+        df.to_csv("project 25/USA_forgot_states_name.csv", index=False)
         break
 
 
@@ -167,11 +167,11 @@ while len(guessed_states) < 50:
 # # width = height = 1000
 # # screen.screensize(width, height)
 
-# img = "project 24/Indian-state.gif"
+# img = "project 25/Indian-state.gif"
 # screen.addshape(img)
 # turtle.shape(img)
 
-# data = pd.read_csv("project 24/Indian_state_data.csv")
+# data = pd.read_csv("project 25/Indian_state_data.csv")
 
 # all_states = data.state.to_list()
 
@@ -203,5 +203,5 @@ while len(guessed_states) < 50:
 #         #         forgot_states.append(state)
 #         forgot_states = [state for state in all_states if state not in guessed_states]
 #         df = pd.DataFrame(forgot_states)
-#         df.to_csv("project 24/India_forgot_state_name.csv", index=False)
+#         df.to_csv("project 25/India_forgot_state_name.csv", index=False)
 #         break

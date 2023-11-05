@@ -114,7 +114,7 @@
 # print(passed_student)
 
 
-# ## TEST from a var sentece find out each has how much letter
+# ## TEST - from a variable sentece find out each has how much letter
 # text = "The quick brown fox jumps over the lazy dog"
 # # words = text.split(" ") ## I jump the line in the result dict to make the code more shorter
 # result = {word: len(word) for word in text.split(" ")}
@@ -125,18 +125,72 @@
 # weather_F = {day: ((temp* 9/5) +32) for day,temp in temperature_data.items()}
 # print(weather_F)
 
-student_data = {
-    "student": ["Alice", "Bob", "Charlie"],
-    "score": [90, 85, 92]
-}
+# student_data = {
+#     "student": ["Alice", "Bob", "Charlie"],
+#     "score": [90, 85, 92]
+# }
 # for key,value in student_data.items():
 #     print(key)
 #     print(value)
 
-import pandas
-student_data_frame = pandas.DataFrame(student_data)
-# print(student_data_frame)
+# import pandas
+# student_data_frame = pandas.DataFrame(student_data)
+# # print(student_data_frame)
 
-# # loop through a dataframe
-# for key,value in student_data_frame.items():
-#     print(value)
+# # # loop through a dataframe
+# # for key,value in student_data_frame.items():
+# #     print(value)
+
+# # pandas method iterrows()
+
+# for (index, row) in student_data_frame.iterrows():
+#     if row.score >= 90:
+#         print(row.student)
+    
+
+# import pandas as pd
+
+# data = {
+#     "student": ["Alice", "Bob", "Charlie", "David"],
+#     "score": [75, 58, 90, 90]
+# }
+
+# df = pd.DataFrame(data)
+
+# # print the names of students who scored below 60
+# for index,row in df.iterrows():
+#     if row.score < 60:
+#         print(row.student)
+
+# # **Find the student with the highest score in a DataFrame of student scores**
+# max_score = -1
+# hig_score_std = []
+# for index,row in df.iterrows():
+#     if row.score > max_score:
+#         max_score = row.score
+#         hig_score_std = [row.student]
+#     elif row.score == max_score:
+#         hig_score_std.append(row.student)
+# print(hig_score_std)
+
+############################################################################# do no know #####################
+
+import pandas as pd
+data = pd.read_csv("project 26/nato_phonetic_alphabet.csv")
+
+#TODO 1. Create a dictionary in this format:
+{"A": "Alfa", "B": "Bravo"}
+
+phonetic_dict = {row.letter: row.code for index,row in data.iterrows()}
+# print(phonetic_dict)
+
+
+#TODO 2. Create a list of the phonetic code words from a word that the user inputs.
+user_word = input("Enter a word: ").upper()
+output_list = [phonetic_dict[letter] for letter in user_word]
+print(output_list)
+
+# output_list = []
+# for letter in user_word:
+#     output_list.append(phonetic_dict[letter])
+# print(output_list)

@@ -15,7 +15,7 @@ So i did it
 ```
 import csv
 
-with open("project 24/weather_data.csv", mode="r") as data_file:
+with open("project 25/weather_data.csv", mode="r") as data_file:
     data = csv.reader(data_file)
     temperatures = []
 
@@ -32,7 +32,7 @@ In previouly I used so many lines to get only the tempDegree but through pandas 
 import pandas
 
 temperatures = []
-data = pandas.read_csv("project 24/weather_data.csv)
+data = pandas.read_csv("project 25/weather_data.csv)
 
 for t in data["temp"]:
     temperatures.append(t)
@@ -53,7 +53,7 @@ Now Date 27/9/23 - I am in the evening learning about data manupulation by panda
 
 2. There are two types of data - Series, DataFrame
 ```
-data = pandas.read_csv("project 24/weather_data.csv")
+data = pandas.read_csv("project 25/weather_data.csv")
 print(type(data))
 print(type(data["temp"]))
 
@@ -62,11 +62,11 @@ Output:
 <class 'pandas.core.series.Series'>
 ```
 
-#### **NOTE :** `data = pandas.read_csv("project 24/weather_data.csv")`
+#### **NOTE :** `data = pandas.read_csv("project 25/weather_data.csv")`
 
 3. How to convert Series data into different type for ex in dictionary
 ```
-data = pandas.read_csv("project 24/weather_data.csv")
+data = pandas.read_csv("project 25/weather_data.csv")
 data_dict = data.to_dict()
 temp_list = data["temp"].to_list()
 
@@ -167,7 +167,7 @@ data_dict = {
 
 data = pandas.DataFrame(data=data_dict)
 print(data)
-data.to_csv("project 24/scratch_data.csv")
+data.to_csv("project 25/scratch_data.csv")
 ```
 
 8. I am putting my little knowledge into test
@@ -212,7 +212,7 @@ turtle.mainloop()
 ---
 - Collect code
 ```
-# with open("project 24/weather_data.csv", mode="r") as data_file:
+# with open("project 25/weather_data.csv", mode="r") as data_file:
 #     data = data_file.readlines()
 #     print(data)
 ```
@@ -221,7 +221,7 @@ turtle.mainloop()
 ```
 import pandas
 
-data = pandas.read_csv("./project 24/2018_Central_Park_Squirrel_Census_-_Squirrel_Data.csv")
+data = pandas.read_csv("./project 25/2018_Central_Park_Squirrel_Census_-_Squirrel_Data.csv")
 
 fur_color = data["Primary Fur Color"]
 
@@ -246,14 +246,14 @@ color_dict = {
 
 new_data = pandas.DataFrame(data=color_dict)
 
-new_data.to_csv("project 24/squirrel_count.csv")
+new_data.to_csv("project 25/squirrel_count.csv")
 ```
 
 
 ```
 # import pandas
 
-# data = pandas.read_csv("project 24/weather_data.csv")
+# data = pandas.read_csv("project 25/weather_data.csv")
 # print(type(data))
 # print(type(data["temp"]))
 
@@ -309,13 +309,13 @@ new_data.to_csv("project 24/squirrel_count.csv")
 # }
 
 # data = pandas.DataFrame(data=data_dict)
-# data.to_csv("project 24/scratch_data.csv")
+# data.to_csv("project 25/scratch_data.csv")
 
 
 
 # import pandas
 
-# data = pandas.read_csv("./project 24/2018_Central_Park_Squirrel_Census_-_Squirrel_Data.csv")
+# data = pandas.read_csv("./project 25/2018_Central_Park_Squirrel_Census_-_Squirrel_Data.csv")
 
 # # fur_color = data["Primary Fur Color"] 
 
@@ -331,7 +331,7 @@ new_data.to_csv("project 24/squirrel_count.csv")
 # }
 
 # df = pandas.DataFrame(data=color_dict)
-# df.to_csv("project 24/squirrel_count.csv")
+# df.to_csv("project 25/squirrel_count.csv")
 ```
 
 
@@ -341,12 +341,12 @@ import turtle
 import pandas
 screen = turtle.Screen()
 screen.title("Us state game")
-image = "./project 24/blank_states_img.gif"
+image = "./project 25/blank_states_img.gif"
 screen.addshape(image)
 turtle.shape(image)
 
 
-data = pandas.read_csv("project 24/50_states.csv")
+data = pandas.read_csv("project 25/50_states.csv")
 all_state = data.state.to_list()
 guessed_state = []
 
@@ -362,7 +362,7 @@ while len(guessed_state) < 50:
                 missing_state.append(state)
 
         df = pandas.DataFrame(missing_state)
-        df.to_csv("project 24/states_to_learn.csv")
+        df.to_csv("project 25/states_to_learn.csv")
         break  
 
     if answer_state in all_state:

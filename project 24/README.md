@@ -12,7 +12,7 @@ it generally overwrite on the file content, but if the file not present on the c
 
 - project   
 with the help of those python features i create many mails where the for every letter the person name will show like - Dear [name], ....<br>
-and the file name was `letter_for_{name}.txt` If any one reading this they can find the code on the `project 23/main.py` file, I am writing this so whenever I want to what i did in the particular project I just get the view of what was the project back in the day     
+and the file name was `letter_for_{name}.txt` If any one reading this they can find the code on the `project 24/main.py` file, I am writing this so whenever I want to what i did in the particular project I just get the view of what was the project back in the day     
 ✌🏼Peace
 
 ---
@@ -20,15 +20,15 @@ and the file name was `letter_for_{name}.txt` If any one reading this they can f
 
 ### open, read, write files using the "with" keyword
 - 1 
-```# with open("project 23\myfile.txt") as file:
+```# with open("project 24\myfile.txt") as file:
 #     contents = file.read()
 #     print(contents)
 
-# with open("project 23\\new_file.txt", mode="w") as file:
+# with open("project 24\\new_file.txt", mode="w") as file:
 #     file.write("This is text file, which is not present in the folder so first it will create the file and the it will write the text which i am providing..")
 ```
 ```
-# with open(file="project 23\hello.txt", mode="w") as file:
+# with open(file="project 24\hello.txt", mode="w") as file:
 #     file.write("I am writing on a file which is not present in the currrent folder")
 
 ```
