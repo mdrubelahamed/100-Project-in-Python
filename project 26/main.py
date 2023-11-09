@@ -178,7 +178,7 @@
 import pandas as pd
 data = pd.read_csv("project 26/nato_phonetic_alphabet.csv")
 
-#TODO 1. Create a dictionary in this format:
+# TODO 1. Create a dictionary in this format:
 {"A": "Alfa", "B": "Bravo"}
 
 phonetic_dict = {row.letter: row.code for index,row in data.iterrows()}

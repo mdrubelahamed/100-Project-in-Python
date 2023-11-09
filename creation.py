@@ -1,6 +1,7 @@
 import os
 
-dayno = projno = 100
+dayno = 27
+projno = 27
 path = f"./project {projno}"
 
 
@@ -14,9 +15,10 @@ with open(f"./project {projno}/main.py", mode="w") as f1, open(f"./project {proj
 ---
 ---
 ### What?
--  Topic  -->
-- Project --> 
+-   Topic &rarr 
+- Project &rarr
 
+- What I learn so far?
 -
 
 ---
