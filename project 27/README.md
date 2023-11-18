@@ -61,6 +61,27 @@ to give you an example here it is
     print(my_car.color)
     ```
 
+To show anything you need to use `*.pack()`
 
+
+- Tkinter **TK** Commands  
+1. Label - text, font
+2. Button - command
+3. Entry - width,
+4. Text -
+5. Spinbox - 
+6. Scale - 
+7. Check Buttons - 
+8. Radio Buttons 
+9. Listbox
+
+
+- Tkiter has Different layout Mangers
+1. pack - Pack each widght next to each other 
+2. place - 
+3. grid - 
+
+- How to add padding ?  
+```window.config(padx=10, pady=10)```
 ---
 ---
