@@ -1,7 +1,7 @@
 import os
 
-dayno = 28
-projno = 28
+dayno = 29
+projno = 29
 path = f"./project {projno}"
 
 
