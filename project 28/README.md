@@ -1,19 +1,16 @@
-# Day 28 //Project 28
+# Project - Building a Pomodoro Timer in Tkinter
 
 ---
----
-### What?
--   Topic - 
-- Project - Building a Pomodoro App
+### Day 28 //Project 28
+Topic - 
+    Choose a task to focus on
+    Set a timer for 25 minutes
+    Work on the task until the timer rings
+    Take a five-minute break
+    Repeat
+    After four pomodoros, take a longer break of 20 minutes
 
-Choose a task to focus on
-Set a timer for 25 minutes
-Work on the task until the timer rings
-Take a five-minute break
-Repeat
-After four pomodoros, take a longer break of 20 minutes
-
-- What I learn so far?
+## What I learn so far?
 - tkinter canvas widget  
     PhotoImage, create_image, create_text - How to put the image on the tkinter canvas, we can put so many things on top of each other
     ```

@@ -1,12 +1,11 @@
-# Day 29 //Project 29
+# Project - Tkinter Password Manger
 
 ---
----
+### Day 29 //Project 29
 ### What?
--   Topic - Using Tkinter Generate a password manager
-- Project - Password Manager
+- Topic - Using Tkinter Generate a password manager
 
-- What I learn so far?
+## What I learn so far?
 - columnspan, insert(index,string)  
 ```
 #1

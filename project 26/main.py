@@ -79,7 +79,7 @@
 
 
 
-######################### DICTIONARY COMPREHENSION ########################################################
+# ----------------------------- DICTIONARY COMPREHENSION ----------------------------- #
 # new_dict = {new_key:new_value for item in list}
 
 # # Create a dictionary where the keys are numbers from 1 to 5, and the values are the squares of those numbers 
@@ -173,24 +173,31 @@
 #         hig_score_std.append(row.student)
 # print(hig_score_std)
 
-############################################################################# do no know #####################
 
+# ----------------------------- Nato Phonetic Alphabate Project ----------------------------- #
 import pandas as pd
 data = pd.read_csv("project 26/nato_phonetic_alphabet.csv")
 
 # TODO 1. Create a dictionary in this format:
-{"A": "Alfa", "B": "Bravo"}
-
+# {"A": "Alfa", "B": "Bravo"}
 phonetic_dict = {row.letter: row.code for index,row in data.iterrows()}
-# print(phonetic_dict)
 
 
 #TODO 2. Create a list of the phonetic code words from a word that the user inputs.
-user_word = input("Enter a word: ").upper()
-output_list = [phonetic_dict[letter] for letter in user_word]
-print(output_list)
+def generate_phonetic():
+    word = input("Enter a word: ").upper()
+    try:
+        output_list = [phonetic_dict[letter] for letter in word]
+    except KeyError:
+        print("Sorry, only letter in the alphabate please.")
+        generate_phonetic()
+    else:
+        print(output_list)
 
-# output_list = []
-# for letter in user_word:
-#     output_list.append(phonetic_dict[letter])
-# print(output_list)
+generate_phonetic()
+
+
+# EXAMPLE how to a list to list comprehension.
+# for letter in word:
+#     output_list.append(phonetic_dict[letter]) 
+

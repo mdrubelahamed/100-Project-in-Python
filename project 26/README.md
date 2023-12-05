@@ -1,12 +1,10 @@
-# Day 26 //Project 26
+# Project - NATO Phonetic Alphabate
 
 ---
----
-### What?
--  Topic  --> **List and Dictionary Comprehension**
-- Project --> 
+### Day 26 //Project 26
+-  Topic - List and Dictionary Comprehension
 
--
+## What I learn So far ?
 - List comprehesion SOP 
 1. new_list = [new_item for item in list]
 2. new_list = [new_item for item in list if test]
