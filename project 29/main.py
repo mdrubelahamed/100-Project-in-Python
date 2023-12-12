@@ -52,7 +52,7 @@ def take_and_save_data():
         else:
             # Update old data with new data
             data.update(new_data)
-
+               
             with open("project 29/data.json", mode="w") as file:
                 # Saving the updated data
                 json.dump(data, file, indent=4)
@@ -67,14 +67,15 @@ def find_password():
     try:
         with open("project 29/data.json") as file:
             data_dict = json.load(file)
-            try:
-                email = data_dict[website]["email"]
-                password = data_dict[website]["password"]
-                messagebox.showinfo(title=website, message=f"Email:{email}\nPassword:{password}")
-            except KeyError:
-                messagebox.showinfo(title="Error", message="Data is not found")
     except FileNotFoundError:
         messagebox.showinfo(title="File Not Found", message="The data file doesn't exits.")
+    else:
+        if website in data_dict:
+            email = data_dict[website]["email"]
+            password = data_dict[website]["password"]
+            messagebox.showinfo(title=website, message=f"Email:{email}\nPassword:{password}")
+        else:
+            messagebox.showinfo(title="Error", message=f"'{website}' data is not found in the data store.")
 
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
