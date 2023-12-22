@@ -48,6 +48,7 @@ window = Tk()
 window.title("Flash Cards!")
 window.config(padx=50, pady=50, bg=BACKGROUND_COLOR)
 flip_timer = window.after(3000, flip_card)
+
 # Canvas
 canvas = Canvas(width=800, height=526)
 card_front_image = PhotoImage(file="project 31/images/card_front.png")
